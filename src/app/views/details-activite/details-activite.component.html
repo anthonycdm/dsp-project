@@ -1,0 +1,98 @@
+<app-header></app-header>
+<section class="container-body">
+		<h3 class="title">{{myActivity.libelle }}</h3>
+		<section class="activite">
+			<section class="left_activite">
+				<article class="">
+					<img src="assets/img/parachute.jpg">
+					
+					<section class="descriptif">
+						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
+						<p class="">
+							
+							 {{myActivity.description}}
+						</p>
+					</section>
+					<section class="conditions">
+						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
+						Conditions : 
+						<p class="">
+							
+							 {{myActivity.condition}}
+						</p>
+					</section>
+					<h3 class="">Photos(3)</h3>
+
+					<section class="share_photos">
+						<form action="" class="" method="post" enctype="multipart/form-data">
+							Ajouter une photo
+							<input type="file" name="img" accept="image/*" multiple>
+							<div class="input-group">	
+								<input type="submit" id="upload_img" name="upload_img" value="Valider">
+							</div>
+						</form>
+						<section class="galerie_photo">
+							<app-slider-activite-photo></app-slider-activite-photo>
+						</section>
+					</section>
+					<section class="notation">
+						
+						<h3 class="">Noter cette activité</h3>
+						<form action="" class="">
+							<section class="stars_notation">
+								<app-rating></app-rating>
+							</section>
+						</form>
+
+					</section>
+					<section class="commentaires_container" >
+						<h3 class="">Commentaires (3)</h3>
+						<h5 class="ajout_comm">Ajouter un commentaire</h5>
+						<!-- <form action="" class="" > -->
+						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn; elsecreateComment" novalidate>
+
+							<textarea name="" id="" cols="30" rows="10" class="" formControlName="commentTexte"></textarea>
+							<div class="input-group">	
+								<input type="submit" id="valid_comment" name="valid_comment" value="Valider">
+							</div>
+						</form>
+						<div class="mess" #elsecreateComment>
+							{{err}}
+						</div>
+						<section class="commentaires">
+							<app-comments></app-comments>
+						</section>
+
+					</section>
+				</article>
+			</section>
+			<section class="right_activite">
+				<section class="gmap-act">
+					<app-gmap-activite></app-gmap-activite>
+				</section>
+				<form action="" class="" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+					<label for="date_resa">Réserver une activité : </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="sizing-addon7">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+						<app-datepicker [group]="form.controls.date" ></app-datepicker>
+					</div>
+					<label for=""></label>
+					<!-- <div class="input-group">	
+						<app-timepicker [group]="form.controls.heure_in"></app-timepicker>
+			
+					</div> -->
+					<section class="prix">
+						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
+						<p class="">
+							
+							Prix :  {{myActivity.prix}} {{currency}}
+						</p>
+					</section>
+					<input type="submit" id="insc_resa" name="insc_resa" value="S'inscrire à l'activité" (click)="onSubmit()">
+				</form>
+			</section>
+		</section>
+	</section>
+	<app-footer></app-footer>

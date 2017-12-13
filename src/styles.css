@@ -1,0 +1,461 @@
+/* You can add global styles to this file, and also import other style files */
+html,body{
+
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+:focus,button:focus{outline: none;}
+input[type=number] {-moz-appearance: textfield;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+ul,li {
+	list-style: none;
+}
+ul{
+
+    padding: 0;
+    margin: 0;
+}
+app-dropdown-header{
+    display: inline-block;
+    margin-right: 30px;
+}
+app-dropdown-header+a{
+    display: inline-block;
+    color: #000;
+}
+textarea{
+	resize: none;
+}
+:focus {
+    outline: none;
+}
+a,a:focus, a:hover{
+
+	text-decoration: none;
+}
+
+.form-control:focus {
+    border-color: #ccc;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+section.head .main-nav{
+
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+}
+
+body.login input[type="submit"]{
+
+	float: right;
+}
+.right_login,.left_login{
+	
+	margin-bottom: 20px;
+	clear: both;
+	display: inline-block;
+    width: calc(50% - 2px);
+    vertical-align: top;
+    padding: 15px 20px;
+    background: #f5f5f5;
+}
+.right_login h3,.left_login h3, .mdp_oublie h3{
+	font-size: 17px;
+    text-align: center;
+    background: #fff;
+    padding: 7px;
+    margin-bottom: 0;
+
+}
+.right_login form,.left_login form, .mdp_oublie form{
+	
+	padding: 15px 15px 30px;
+	border-bottom: solid 1px #fff;
+	border-right: solid 1px #fff;
+	border-left: solid 1px #fff;
+
+}
+body.login .input-group:last-child{
+	float: right;
+}
+.carousel-inner img{
+    width: 100%;
+    height: auto;
+}
+
+
+.left_activite img{
+
+    width: 100%; 
+    height: auto;
+}
+   
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    top: 44px !important;
+}
+
+header.header{
+	height: 90px;
+	width: 100%;
+	background: #ece5ce;
+}
+.right-header{
+    position: absolute;
+    right: 60px;
+    top: 30px;
+}
+.mdp_oublie{
+	clear: both;
+}
+.navbar-default .navbar-collapse {
+    border: none;
+}
+footer.footer{
+
+	position: relative;
+	/*bottom:  0;*/
+	bottom:  -50px;
+	left:0;
+	width: 100%;
+}
+section.top_footer ul li a{
+    color: #37241d;
+}
+footer.footer section.top_footer{
+	background: #ece5ce;
+
+}
+
+section.top_footer ul{
+	text-align: center;
+	padding: 15px;
+}
+section.top_footer ul li{
+	display: inline-block;
+	margin: 0 7px;
+
+
+}
+footer.footer section.bottom_footer {
+    background: #37241d;
+    /* height: 50px; */
+    position: relative;
+    /* bottom: -100px; */
+}
+.input-group-addon {
+    border-right: none;
+    border-radius: 0;
+}
+section.container-body{
+	
+	display: block;
+    margin: 10px auto;
+    width: 80%;
+    position: relative;
+    top: 50px;
+    font-size: 13px;
+
+}
+input[type="text"], input[type="email"], input[type="password"]{
+	border-left: none;
+    border-radius: 0;
+}
+.input-group {
+
+    margin-bottom: 20px;
+}
+
+body.login .container-body{
+
+	font-size: 0;
+}
+body.login label{
+	/*float: left;
+    margin-right: 10px;*/
+    margin-top: 5px;
+    clear: both;
+    /*width: 100px;*/
+
+}
+.left_login{
+	padding-right: 15px;
+	height: 570px;
+
+} 
+.right_login{
+	
+	padding-left:15px;
+
+}
+.mdp_oublie{
+	margin-top: 67px;
+	margin-bottom: 15px;
+}
+body.about section.container-body,
+body.login section.container-body{
+
+    height: 100%;
+
+}
+body.accueil section.container-body{
+    top: 0px;
+}
+/*body.accueil section.slider{
+    top: 50px;
+    position: relative;
+}*/
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background: none;
+}
+.navbar-default .navbar-toggle {
+    border: none;
+    margin: 0;
+    float: none;
+}
+
+.right_login, .left_login, .mdp_oublie{
+
+	font-size: 13px;
+}
+section.activites{
+	
+	display: block;
+    margin: 10px auto;
+
+}
+.stars_notation span{
+	font-size: 22px;
+}
+#map {
+	width: 100%;
+	height: 400px;
+	background-color: grey;
+}
+agm-map {
+  height: 200px;
+}
+.infos_agence {
+
+	margin-top: 20px;
+
+}
+.infos_agence li{
+
+	display: block;
+}
+section.activites article {
+    display: inline-block;
+    width: calc(33% - 7px);
+    /* padding: 5px; */
+    margin-top: 15px;
+    height: 150px;
+    position: relative;
+    vertical-align: top;
+}
+section.activites article img{
+
+	width: 100%;
+	height: 100%;
+}
+section.activites article section{
+	width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+}
+section.activites article section h4{
+	position: relative;
+    top: 25%;
+    text-align: center;
+}
+ section.activites article:nth-child(3n+2) {
+    margin-right: 5px;
+}
+section.commentaires_container textarea{
+	width: 100%;
+    height: 115px;
+}
+section.activite button {
+   
+ 	border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    position: relative;
+}
+.galerie_photo .owl-carousel .owl-nav.disabled{
+
+	display: block;
+}
+.left_activite{
+
+	display: inline-block;
+    width: calc(70% - 17px);
+    margin-right: 15px;
+}
+.right_activite{
+	width: calc(30% - 17px);
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15px;
+}
+section.activites article:nth-child(3n+3) {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+section.activites article:nth-child(3n+4) {
+    margin-left: 5px;
+}
+/*.main-nav {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    top: 13px;
+}*/
+.main-nav li {
+    display: inline-block;
+    margin: 0 15px;
+    vertical-align: bottom;
+}
+.main-nav li a{
+
+	color: #37241d;
+    padding:0 15px;
+    
+	
+}
+
+app-datepicker .input-group .form-control{
+    border-radius: 0;
+}
+#dropdownBasic1{border: none;}
+#dropdownBasic1,
+#sizing-addon7,
+app-datepicker .input-group-addon{
+    background-color: #ece5ce;
+}
+app-datepicker .input-group, app-datepicker .form-group{ margin-bottom: 0}
+app-timepicker input[type="text"]{
+    border-left: solid 1px #ced4da;
+}
+.main-nav li:first-child {
+    margin-left: 0;
+}
+.head .navbar-right {
+    margin-right: 0;
+    position: relative;
+    width: 33%;
+    text-align: right;
+   /* margin-top: 13px;*/
+}
+.head .navbar {
+    border: none;
+    border-radius: 0;
+    background: none;
+    width: 100%;
+    padding: 10px 0;
+}
+ngb-timepicker+div{display: none;}
+ .input-group app-timepicker .form-control{
+    width: inherit;
+}
+app-dropdown-header .row{
+    margin-right: 0;
+    margin-left: 0;
+}
+#navbar>li:first-child{
+    float: left; 
+     width: 70px;
+}
+#navbar>li:nth-child(2){
+    padding: 20px 0;  
+    z-index: 999;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // margin: 0 auto;
+    text-align: center;
+}
+#navbar>li:first-child a{
+    padding:0;
+}
+#navbar>li:nth-child(1) img{
+         width: 100%;
+    height: auto;
+}
+#navbar>li:last-child{
+    float: right;
+}
+.navbar-nav.navbar-right>li {
+    float: none;
+}
+a.logo{
+	margin: 0 auto;
+    display: block;
+   /* width: 33%;
+    float: left;
+    margin-top: 13px;*/
+    text-align: center;
+    color: #fff;
+}
+.bottom_footer ul{
+
+	margin: 0;
+    padding: 5px;
+}
+.bottom_footer ul span{
+
+	text-align: center;
+	color: #fff;
+	font-size: 11px;
+}
+.bottom_footer ul li{
+
+	text-align: center;
+}
+.head .navbar-right  a span{
+	margin-right: 5px;
+}
+.navbar-default .navbar-nav>li>a{
+
+	font-size: 13px;
+    padding: 0;
+}
+h3.title{
+	font-size: 15px;
+}
+
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a:focus, 
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus, 
+.navbar-default .navbar-nav>.open>a:hover{
+
+	color: #fff;
+	background: none;
+}
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 16px;
+}
+@media (max-width: 768px){
+	.navbar-header {
+	    position: absolute;
+	}
+}
