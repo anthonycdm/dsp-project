@@ -17,14 +17,14 @@
     <tbody>
         <!-- <tr *ngFor="let i = index ; let res of rsv;" > -->
 	    <tr *ngFor="let i = index ; let com of commentaires;">
-			<td>le {{date_com}}</td>
-			<td>{{user_info_com[0]?.prenom}} {{user_info_com[0]?.nom}}</td>
+			<td>le {{date_com[i]}}</td>
+			<td>{{user_info_com[i][0]?.prenom}} {{user_info_com[i][0]?.nom}}</td>
 			<td>
-				<a *ngIf="act_com[0]" [routerLink]="['/activite/', act_com[0]?._id]">
-					{{act_com[0]?.libelle}}
+				<a *ngIf="act_com[i][0]" [routerLink]="['/activite/', act_com[i][0]?._id]">
+					{{act_com[i][0]?.libelle}}
 				</a>
-				<a *ngIf="!act_com[0]" >
-					{{act_com[0]?.libelle}}
+				<a *ngIf="!act_com[i][0]" >
+					{{act_com[i][0]?.libelle}}
 				</a>
 			</td>
 			<td></td>

@@ -10,11 +10,11 @@ import { ActivitesService,CommentairesService, AuthService,DateService } from '.
 })
 export class AdminCommentairesComponent implements OnInit {
   commentaires : Commentaires[] = [];
-  id_cli_com : any;
+  id_cli_com : any ;
   id_act_com : any;
-  date_com : String;
-  user_info_com : User[] = [];
-  act_com : Activites[] = [];
+  date_com : any = [];
+  user_info_com : any = [];
+  act_com : any = [];
 
   constructor(private route : ActivatedRoute,
               private router : Router,
@@ -27,34 +27,37 @@ export class AdminCommentairesComponent implements OnInit {
 
   	this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
-	  	this.user_info_com = response;
-	  	//console.log('user : ',response);
+	  	this.user_info_com.push(response);
+	  	//console.log('user : ',this.user_info_com);
 	  })
 
   }
   getActCom(id : String){
-
   	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
-	  	this.act_com = response;
-	  	//console.log('user : ',response);
+	  	this.act_com.push(response);
+	  	//console.log('activite : ',this.act_com);
+      
+
 	  })
 
   }
   getAllComments(){
   
-  	this.commentaire.getAllCommentaires().subscribe((data) => {
+  	this.commentaire.getAllCommentaires()
+
+    .subscribe((data) => {
   		this.commentaires = data;
   		if (this.commentaires.length>0) {
+
 	  		for (let i = 0; i<this.commentaires.length; i++) {
 	  			this.id_cli_com = this.commentaires[i].id_client;
 	  			this.id_act_com = this.commentaires[i].id_act;
-
-	  			this.date_com = this.date.getFullDate(this.commentaires[i].date);
-
-		  		this.getUserInfoCom(this.id_cli_com);
+	  			this.date_com.push(this.date.getFullDate(this.commentaires[i].date));
+          this.getUserInfoCom(this.id_cli_com);
 		  		this.getActCom(this.id_act_com);
 	  		}
+        //console.log(this.commentaires);
   		}
   		//console.log(data);
   	});
