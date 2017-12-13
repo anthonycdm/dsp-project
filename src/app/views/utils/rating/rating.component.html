@@ -1,1 +1,1 @@
-<ngb-rating [(rate)]="currentRate"></ngb-rating>
+<ngb-rating [(rate)]="etoile" (click)="onClick(etoile)" (hover)="hovered=$event" (leave)="hovered=0" [attr.aria-valuenow]="etoile" [(ngModel)]="etoile" [readonly]="readonly"></ngb-rating>
