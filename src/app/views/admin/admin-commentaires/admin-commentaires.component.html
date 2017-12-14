@@ -17,7 +17,10 @@
     <tbody>
         <!-- <tr *ngFor="let i = index ; let res of rsv;" > -->
 	    <tr *ngFor="let i = index ; let com of commentaires;">
-			<td>le {{date_com[i]}}</td>
+			<td>
+				<div>le {{date_com?date_com[i]:''}}</div>
+				<!-- <div *ngIf="!date_com[i]">le {{date_com[i]}}</div>		 -->
+			</td>
 			<td>{{user_info_com[i][0]?.prenom}} {{user_info_com[i][0]?.nom}}</td>
 			<td>
 				<a *ngIf="act_com[i][0]" [routerLink]="['/activite/', act_com[i][0]?._id]">

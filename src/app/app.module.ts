@@ -38,6 +38,9 @@ import { PanierComponent } from './views/panier/index';
 import { ValidcmdComponent } from './views/utils/validcmd/validcmd.component';
 import { CommentsComponent } from './views/utils/comments/comments.component';
 import { AdminCommentairesComponent } from './views/admin/admin-commentaires/admin-commentaires.component';
+import { AdminClientsComponent } from './views/admin/admin-clients/clients.component';
+import { AdminClientComponent } from './views/admin/admin-client/client.component';
+import { AdminCommentaireComponent } from './views/admin/admin-commentaire/admin-commentaire.component';
 /*import { FormValidateDirective } from './show-errors/form-validate.directive';*/
 
 
@@ -52,6 +55,9 @@ const appRoutes: Routes = [
    { path: 'admin/add-activite', component: AddActiviteComponent, canActivate:[AdminGuard] },
    { path: 'admin/update-activite/:id', component: UpdateActiviteComponent, canActivate:[AdminGuard] },
    { path: 'admin/commentaires', component:AdminCommentairesComponent, canActivate:[AdminGuard]},
+   { path: 'admin/commentaire/:id', component:AdminCommentaireComponent, canActivate:[AdminGuard]},
+   { path: 'admin/clients', component:AdminClientsComponent, canActivate:[AdminGuard]},
+   { path: 'admin/client/:id', component:AdminClientComponent, canActivate:[AdminGuard]},
    { path: 'activites', component: ActivitesComponent },
    { path: 'activite/:id', component: DetailsActiviteComponent },
    { path: 'loginOrder', component: LoginOrderComponent, canActivate:[AuthguardGuard] },
@@ -99,7 +105,10 @@ const appRoutes: Routes = [
     PanierComponent,
     ValidcmdComponent,
     CommentsComponent,
-    AdminCommentairesComponent
+    AdminCommentairesComponent,
+    AdminClientsComponent,
+    AdminClientComponent,
+    AdminCommentaireComponent
   ],
   imports: [
     BrowserModule,
