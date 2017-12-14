@@ -53,7 +53,7 @@ export class AdminCommentaireComponent implements OnInit {
     })
 
   }
-   getUserInfoCom(id : String){
+  getUserInfoCom(id : String){
 
     this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
     .subscribe((response)=>{

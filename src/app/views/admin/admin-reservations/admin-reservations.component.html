@@ -1,0 +1,48 @@
+<app-header></app-header>
+<section class="container-body">
+
+
+<div class="container">
+  <h2>Liste des reservations</h2>
+ <table class="table table-condensed"  *ngIf="reservations?.length>0">
+    <thead>
+      <tr>
+      	<th>N° de réservation</th>
+        <th>Date</th>
+        <th>Activité</th>
+        <th>Client</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- <tr *ngFor="let i = index ; let res of rsv;" > -->
+	    <tr *ngFor="let i = index ; let rsv of reservations;">
+	    	<td>
+				<div>{{rsv?rsv_id:''}}</div>
+			</td>
+			<td>
+				<div>le {{date_rsv?date_rsv[i]:''}}</div>
+			</td>
+			<td>
+				<a *ngIf="act_rsv[i][0]" [routerLink]="['/activite/', act_rsv[i][0]?._id]">
+					{{act_rsv[i][0]?.libelle}}
+				</a>
+				<a *ngIf="!act_rsv[i][0]" >
+					{{act_rsv[i][0]?.libelle}}
+				</a>
+			</td>
+			<td>{{user_info_rsv[i][0]?.prenom}} {{user_info_rsv[i][0]?.nom}}</td>
+			<td>
+				<a  [routerLink]="['/admin/reservation/', rsv?._id]">
+					Voir la reservation
+				</a>
+			</td>
+
+	    </tr>   
+      
+    </tbody>
+  </table>
+</div>
+</section>
+
+<app-footer></app-footer>

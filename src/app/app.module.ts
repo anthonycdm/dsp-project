@@ -41,6 +41,8 @@ import { AdminCommentairesComponent } from './views/admin/admin-commentaires/adm
 import { AdminClientsComponent } from './views/admin/admin-clients/clients.component';
 import { AdminClientComponent } from './views/admin/admin-client/client.component';
 import { AdminCommentaireComponent } from './views/admin/admin-commentaire/admin-commentaire.component';
+import { AdminReservationsComponent } from './views/admin/admin-reservations/admin-reservations.component';
+import { AdminReservationComponent } from './views/admin/admin-reservation/admin-reservation.component';
 /*import { FormValidateDirective } from './show-errors/form-validate.directive';*/
 
 
@@ -56,6 +58,8 @@ const appRoutes: Routes = [
    { path: 'admin/update-activite/:id', component: UpdateActiviteComponent, canActivate:[AdminGuard] },
    { path: 'admin/commentaires', component:AdminCommentairesComponent, canActivate:[AdminGuard]},
    { path: 'admin/commentaire/:id', component:AdminCommentaireComponent, canActivate:[AdminGuard]},
+   { path: 'admin/reservations', component:AdminReservationsComponent, canActivate:[AdminGuard]},
+   { path: 'admin/reservation/:id', component:AdminReservationComponent, canActivate:[AdminGuard]},
    { path: 'admin/clients', component:AdminClientsComponent, canActivate:[AdminGuard]},
    { path: 'admin/client/:id', component:AdminClientComponent, canActivate:[AdminGuard]},
    { path: 'activites', component: ActivitesComponent },
@@ -108,7 +112,9 @@ const appRoutes: Routes = [
     AdminCommentairesComponent,
     AdminClientsComponent,
     AdminClientComponent,
-    AdminCommentaireComponent
+    AdminCommentaireComponent,
+    AdminReservationsComponent,
+    AdminReservationComponent
   ],
   imports: [
     BrowserModule,
