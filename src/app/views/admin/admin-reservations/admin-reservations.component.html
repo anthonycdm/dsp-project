@@ -1,5 +1,6 @@
 <app-header></app-header>
-<section class="container-body">
+<section class="container-body admin">
+<app-admin-menu></app-admin-menu>
 
 
 <div class="container">
@@ -18,7 +19,7 @@
         <!-- <tr *ngFor="let i = index ; let res of rsv;" > -->
 	    <tr *ngFor="let i = index ; let rsv of reservations;">
 	    	<td>
-				<div>{{rsv?rsv_id:''}}</div>
+				<div>{{rsv?rsv._id:''}}</div>
 			</td>
 			<td>
 				<div>le {{date_rsv?date_rsv[i]:''}}</div>

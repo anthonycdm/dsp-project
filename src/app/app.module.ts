@@ -43,6 +43,7 @@ import { AdminClientComponent } from './views/admin/admin-client/client.componen
 import { AdminCommentaireComponent } from './views/admin/admin-commentaire/admin-commentaire.component';
 import { AdminReservationsComponent } from './views/admin/admin-reservations/admin-reservations.component';
 import { AdminReservationComponent } from './views/admin/admin-reservation/admin-reservation.component';
+import { OrderbyPipe } from './pipes/orderby.pipe';
 /*import { FormValidateDirective } from './show-errors/form-validate.directive';*/
 
 
@@ -114,7 +115,8 @@ const appRoutes: Routes = [
     AdminClientComponent,
     AdminCommentaireComponent,
     AdminReservationsComponent,
-    AdminReservationComponent
+    AdminReservationComponent,
+    OrderbyPipe
   ],
   imports: [
     BrowserModule,

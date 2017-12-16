@@ -17,6 +17,11 @@ export class DateService {
   	let date = new Date(mydate);
   	return date.toLocaleDateString();
   }
+  sort() {
+    let a: Date;
+    let b: Date;
+    return b.valueOf() - a.valueOf();
+  }
   getAnnee(){
 
   }

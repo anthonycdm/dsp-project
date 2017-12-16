@@ -35,7 +35,7 @@ export class AdminReservationsComponent implements OnInit {
 	  			this.id_cli_rsv = this.reservations[i].id_client;
 	  			this.id_act_rsv = this.reservations[i].id_act;
 	  			this.date_rsv.push(this.date.getDate(this.reservations[i].date_rsv));
-          		this.getUserRsv(this.id_cli_rsv);
+          this.getUserRsv(this.id_cli_rsv);
 		  		this.getActRsv(this.id_act_rsv);
 	  		}
       
@@ -48,7 +48,7 @@ export class AdminReservationsComponent implements OnInit {
   	this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.user_info_rsv.push(response);
-	  	console.log('user : ',this.user_info_rsv);
+	  	//console.log('user : ',this.user_info_rsv);
 	  })
 
   }
@@ -56,7 +56,7 @@ export class AdminReservationsComponent implements OnInit {
   	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.act_rsv.push(response);
-	  	console.log('activite : ',this.act_rsv);
+	  	//console.log('activite : ',this.act_rsv);
       
 
 	  })

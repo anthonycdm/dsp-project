@@ -296,6 +296,15 @@ section.activite button {
     cursor: pointer;
     position: relative;
 }
+app-admin-menu, .admin-menu{
+    display: table-cell;
+}
+section.container-body.admin{
+    display: table;
+}
+.admin-menu li{
+
+}
 .galerie_photo .owl-carousel .owl-nav.disabled{
 
 	display: block;
