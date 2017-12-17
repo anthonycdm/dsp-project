@@ -22,7 +22,7 @@ export class NotesService {
 
   }
   
-  public getActivite(id ) : Observable<Note> {
+  public getNote(id ) : Observable<Note> {
      return this._http.get(myGlobals.API+"note/"+id)
          .map(result => result.json())
          .catch(this.handleError);

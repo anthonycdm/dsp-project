@@ -44,6 +44,8 @@ import { AdminCommentaireComponent } from './views/admin/admin-commentaire/admin
 import { AdminReservationsComponent } from './views/admin/admin-reservations/admin-reservations.component';
 import { AdminReservationComponent } from './views/admin/admin-reservation/admin-reservation.component';
 import { OrderbyPipe } from './pipes/orderby.pipe';
+import { AdminNotesComponent } from './views/admin/admin-notes/admin-notes.component';
+import { AdminNoteComponent } from './views/admin/admin-note/admin-note.component';
 /*import { FormValidateDirective } from './show-errors/form-validate.directive';*/
 
 
@@ -63,6 +65,8 @@ const appRoutes: Routes = [
    { path: 'admin/reservation/:id', component:AdminReservationComponent, canActivate:[AdminGuard]},
    { path: 'admin/clients', component:AdminClientsComponent, canActivate:[AdminGuard]},
    { path: 'admin/client/:id', component:AdminClientComponent, canActivate:[AdminGuard]},
+   { path: 'admin/notes', component:AdminNotesComponent, canActivate:[AdminGuard]},
+   { path: 'admin/note/:id', component:AdminNoteComponent, canActivate:[AdminGuard]},
    { path: 'activites', component: ActivitesComponent },
    { path: 'activite/:id', component: DetailsActiviteComponent },
    { path: 'loginOrder', component: LoginOrderComponent, canActivate:[AuthguardGuard] },
@@ -116,7 +120,9 @@ const appRoutes: Routes = [
     AdminCommentaireComponent,
     AdminReservationsComponent,
     AdminReservationComponent,
-    OrderbyPipe
+    OrderbyPipe,
+    AdminNotesComponent,
+    AdminNoteComponent
   ],
   imports: [
     BrowserModule,

@@ -22,7 +22,7 @@
 				<div>{{rsv?rsv._id:''}}</div>
 			</td>
 			<td>
-				<div>le {{date_rsv?date_rsv[i]:''}}</div>
+				<div>{{date_rsv?date_rsv[i]:''}}</div>
 			</td>
 			<td>
 				<a *ngIf="act_rsv[i][0]" [routerLink]="['/activite/', act_rsv[i][0]?._id]">

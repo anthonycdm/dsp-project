@@ -4,7 +4,7 @@
 
 
 <div class="container">
-  <h2>Liste des activités récentes</h2>
+  <h2>Liste des activités</h2>
   <a routerLink="/admin/add-activite" class="">Ajouter une activité</a>
   <table class="table table-condensed">
     <thead>
@@ -12,6 +12,7 @@
         <th>Id</th>
         <th>Type</th>
         <th>Activité</th>
+        <th>Note moyenne</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -20,6 +21,8 @@
         <td>{{activite._id }}</td>
         <td>{{activite.type_act }}</td>
         <td>{{activite.libelle }}</td>
+        <td *ngIf="allaverages[i]>0"><ngb-rating [(rate)]="allaverages[i]"></ngb-rating></td>
+        <td *ngIf="allaverages[i]==0">Non notée</td>
         <td>
           <ul>
             <li><a [routerLink]="['/activite/', activite._id]" target="_blank">Voir</a></li>

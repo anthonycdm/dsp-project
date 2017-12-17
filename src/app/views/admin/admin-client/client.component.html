@@ -28,6 +28,7 @@
     </tbody>
   </table>
   <h2>Commentaire(s) ({{commentaires?.length}})</h2>
+  <p *ngIf="!ratings?.length>0">Ce client n'a pas commenté</p>
   <table class="table table-condensed"  *ngIf="commentaires?.length>0">
     <thead>
       <tr>
@@ -66,6 +67,42 @@
 
 	    </tr>  
       
+    </tbody>
+  </table>
+  <h2>Note(s) ({{ratings?.length}})</h2>
+  <p *ngIf="!ratings?.length>0">Ce client n'a pas noté</p>
+   <table class="table table-condensed" *ngIf="ratings?.length>0">
+  
+ 	<thead>
+      <tr>
+        <th>Date</th>
+      	<th>Note</th>
+        <th>Activité</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+	     <tr *ngFor="let i = index ; let rating of ratings;">
+			<td>
+				 <div>{{date_note?date_note[i]:''}}</div> 
+			</td>
+	    	<td>
+				<div><ngb-rating [(rate)]="rating.note"></ngb-rating></div>
+			</td>
+			<td>
+				<a *ngIf="act_note[i][0]" [routerLink]="['/activite/', act_note[i][0]?._id]">
+					{{act_note[i][0]?.libelle}}
+				</a>
+				<a *ngIf="!act_note[i][0]" >
+					{{act_note[i][0]?.libelle}}
+				</a>
+			</td>
+			<td>
+				<a  [routerLink]="['/admin/note/', rating?._id]">
+					Voir la note en détail
+				</a>
+			</td> 
+	    </tr>   
     </tbody>
   </table>
 </div>

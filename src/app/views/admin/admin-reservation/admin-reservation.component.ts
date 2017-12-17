@@ -11,7 +11,7 @@ import { ActivitesService,ReservationService, AuthService,DateService } from '..
 })
 export class AdminReservationComponent implements OnInit {
 
- reservations : Reservation[] = [];
+  reservations : Reservation[] = [];
   rsv : any = [];
   id_cli_rsv : any ;
   id_act_rsv : any;
