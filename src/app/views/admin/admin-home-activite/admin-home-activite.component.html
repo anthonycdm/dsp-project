@@ -9,18 +9,21 @@
   <table class="table table-condensed">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Type</th>
         <th>Activité</th>
+        <th>Type</th>
+        <th>Prix</th>
+        <th>En promotion</th>
         <th>Note moyenne</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let i = index ; let activite of myActivities">
-        <td>{{activite._id }}</td>
-        <td>{{activite.type_act }}</td>
         <td>{{activite.libelle }}</td>
+        <td>{{activite.type_act }}</td>
+        <td>{{prices[i]}} {{currency}}</td>
+        <td *ngIf="activite.en_promo === true"><i class="fa fa-check"></i></td>
+        <td *ngIf="!activite.en_promo === true"><i class="fa fa-times"></i></td>
         <td *ngIf="allaverages[i]>0"><ngb-rating [(rate)]="allaverages[i]"></ngb-rating></td>
         <td *ngIf="allaverages[i]==0">Non notée</td>
         <td>

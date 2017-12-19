@@ -87,7 +87,8 @@
 						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
 						<p class="">
 							
-							Prix :  {{myActivity.prix}} {{currency}}
+							<span>Prix :  {{prix}} {{currency}} </span>
+							<span *ngIf="myActivity.remise !== null"> au lieu de <span>{{myActivity.prix}} {{currency}}</span></span>
 						</p>
 					</section>
 					<input type="submit" id="insc_resa" name="insc_resa" value="S'inscrire à l'activité" (click)="onSubmit()">

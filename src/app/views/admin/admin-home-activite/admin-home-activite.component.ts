@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Activites } from '../../../models/index';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as myGlobals from '../../../globals/index';
 import { ActivitesService, NotesService } from '../../../services/index';
 
 @Component({
@@ -18,6 +19,9 @@ export class AdminHomeActiviteComponent implements OnInit {
   allaverages : any =[];
   sum : number = 0;
   average : number = 0;
+  prices : any = [];
+  currency  = myGlobals.CURRENCY.euro;
+
   constructor(private router: Router,
   			  private activites :ActivitesService,
           private notes : NotesService,
@@ -26,11 +30,11 @@ export class AdminHomeActiviteComponent implements OnInit {
   			  private activite :ActivitesService) {
 
       config.readonly = true;
-      config.max = 5;
+      config.max = myGlobals.RATING_ACT;
 
 
   }
-
+  
   getActivites(){
 
   	 this.activites.getAllActivites().subscribe(data => {
@@ -39,6 +43,7 @@ export class AdminHomeActiviteComponent implements OnInit {
        //console.log(this.myActivities);
        for (let i = 0; i <this.myActivities.length; i++) {
          this.getAverageByActivity(this.myActivities[i]._id);
+         this.prices.push(this.activites.getPrice(this.myActivities[i].prix,this.myActivities[i].remise));
        }
 
      });

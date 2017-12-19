@@ -30,7 +30,7 @@ export class AdminNotesComponent implements OnInit {
 
 
       config.readonly = true;
-      config.max = 5;
+      config.max = myGlobals.RATING_ACT;
 
   }
 

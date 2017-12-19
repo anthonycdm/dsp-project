@@ -39,7 +39,7 @@ export class RatingComponent implements OnInit {
               private router : Router,
               private note : NotesService,
               private auth : AuthService) {
-              config.max = 5;
+              config.max = myGlobals.RATING_ACT;
             
 
 

@@ -23,6 +23,15 @@ export class ActivitesService {
          .catch(this.handleError);
 
   }
+
+  public getPrice(prix : number, remise : number){
+
+    if (remise !== null){
+      prix = prix - remise;
+    
+    }
+    return prix;
+  }
   
   public getActivite(id ) : Observable<Activites> {
      return this._http.get(myGlobals.API+"activite/"+id)

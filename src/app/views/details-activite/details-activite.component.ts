@@ -23,6 +23,7 @@ export class DetailsActiviteComponent implements OnInit {
   currency = myGlobals.CURRENCY.euro;
   form: FormGroup;
   commentform: FormGroup;
+  prix : number;
 
   isLoggedIn = this.auth.isLoggedIn();
   id_activite = this.route.snapshot.paramMap.get('id');
@@ -77,9 +78,13 @@ export class DetailsActiviteComponent implements OnInit {
    
   getActivite(){
 		 this.activite.getActivite(this.id_activite)
-                  .subscribe(data => {this.myActivity=data ;console.log(this.myActivity);});
+                  .subscribe(data => {this.myActivity=data ;
+                    console.log(this.myActivity);
+                    this.prix = this.activite.getPrice (this.myActivity.prix, this.myActivity.remise);
+                  });
 
   }
+
 
   createReservation(){
 
