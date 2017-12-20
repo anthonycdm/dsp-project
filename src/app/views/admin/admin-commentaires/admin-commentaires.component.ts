@@ -15,6 +15,7 @@ export class AdminCommentairesComponent implements OnInit {
   date_com : any = [];
   user_info_com : any = [];
   act_com : any = [];
+  isSuspended: boolean = false;
 
   constructor(private route : ActivatedRoute,
               private router : Router,
@@ -40,6 +41,21 @@ export class AdminCommentairesComponent implements OnInit {
       
 
 	  })
+
+  }
+  toggleVisible(index){
+     if(this.commentaires[index].visible === true){
+
+        this.commentaires[index].visible = false;
+     } else {
+
+        this.commentaires[index].visible = true;
+     }
+
+     this.commentaire.updateCommentaire(this.commentaires[index]).subscribe((response)=>{
+
+       console.log(response);
+     });
 
   }
   getAllComments(){

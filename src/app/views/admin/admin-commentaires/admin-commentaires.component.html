@@ -31,7 +31,19 @@
 					{{act_com[i][0]?.libelle}}
 				</a>
 			</td>
-			<td></td>
+			  <td>
+          <ul>
+            <li><a [routerLink]="['/admin/commentaire/', com._id]" target="_blank">Voir</a></li>
+            <li>
+            	<a (click)="toggleVisible(i)">
+            		<span *ngIf="com.visible === true">Retirer</span>
+            		<span *ngIf="!com.visible === true">Remettre</span>
+            	</a>
+            </li>
+            <li><a>Supprimer</a></li>
+
+          </ul>
+        </td>
 
 	    </tr>  
       
