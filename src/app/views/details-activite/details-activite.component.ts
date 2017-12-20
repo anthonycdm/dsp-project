@@ -43,6 +43,7 @@ export class DetailsActiviteComponent implements OnInit {
     date : null,
     id_act : null,
     id_client : null,
+    visible: true,
     _id: null
   };
   constructor(private route : ActivatedRoute,

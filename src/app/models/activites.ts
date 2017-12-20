@@ -1,18 +1,19 @@
 export class Activites {
 
-    libelle: string;
+    libelle: String;
     type_act:string;
     duree_act: number;
-    condition: String;
     latitude:Float32Array;
     en_promo:Boolean;
     remise:Number;
     prix:number;
+    photo:String;
+    description:String;
+    condition:String;
     longitude:Float32Array;
    _id:String;
-   public get get_id() : String {
-   	return this._id;
-   }
+   visible:boolean;
+   visible_home:boolean;
    
 
 }

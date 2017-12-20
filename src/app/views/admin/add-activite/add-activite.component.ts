@@ -12,16 +12,32 @@ import { ActivitesService } from '../../../services/index';
 export class AddActiviteComponent implements OnInit {
 
   form: FormGroup;
+  showHome :boolean = false;
+  showAct : boolean = false;
+  act : any ={
+               libelle: ['',[Validators.required, Validators.minLength(3)]],
+               type_act:['',[Validators.required, Validators.minLength(3)]],
+               prix:['',[Validators.required, Validators.minLength(3)]],
+               description:['',[Validators.required, Validators.minLength(3)]],
+               condition:['',[Validators.minLength(3)]],
+               visible: this.showAct, 
+               en_promo:false,
+               photo:null,  
+               remise: null,
+               longitude:0, 
+               latitude:0,        
+               visible_home: this.showHome,
+               duree_act:['',[Validators.required, Validators.maxLength(2)]],
+               _id:null
+          } ;
+
+
   constructor(private route : ActivatedRoute,
   			  private router : Router,
   			  private activite :ActivitesService,
   			  public fb: FormBuilder) { 
 
-  			  this.form = fb.group({
-	           	 libelle: ['',[Validators.required, Validators.minLength(3)]],
-				       type_act:['',[Validators.required, Validators.minLength(3)]],
-				       duree_act:['',[Validators.required, Validators.maxLength(2)]]
-        	});
+  			  this.form = fb.group(this.act);
 
   }
   createActivite(){
@@ -37,6 +53,12 @@ export class AddActiviteComponent implements OnInit {
      });
 
   }
+  isChecked(e){
+
+    this.showHome = e.target.checked;
+    console.log(this.showHome);
+
+  }
 
   onSubmit(){
 
@@ -44,6 +66,7 @@ export class AddActiviteComponent implements OnInit {
 
   }
   ngOnInit() {
+
 
 
   }

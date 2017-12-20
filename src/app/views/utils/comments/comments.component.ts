@@ -35,10 +35,7 @@ export class CommentsComponent implements OnInit {
   getAllComments(id : String){
   
   	this.commentaire.getAllCommentaires()
-  	.map(function(result) { 
-  		console.log('Ca me retourne',result);
-  		return result.filter( item => item.id_act === id );
-  	})
+  	.map((result) =>result.filter( item => item.id_act === id && item.visible === true ))
   	.subscribe((data) => {
   		this.commentaires = data;
   		if (this.commentaires.length>0) {
@@ -56,15 +53,10 @@ export class CommentsComponent implements OnInit {
 
 
   }
- /* getId(){
-  		  	this.test = new Activites();
-  	console.log('le tst',this.test._id);
-
-  }*/
+ 
   ngOnInit() {
   	this.getAllComments(this.id_act_com);
-  	
-  	//this.getId();
+
   }
 
 }

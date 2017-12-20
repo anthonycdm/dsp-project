@@ -47,6 +47,7 @@ import { OrderbyPipe } from './pipes/orderby.pipe';
 import { AdminNotesComponent } from './views/admin/admin-notes/admin-notes.component';
 import { AdminNoteComponent } from './views/admin/admin-note/admin-note.component';
 import { AdminPromotionsComponent } from './views/admin/admin-promotions/admin-promotions.component';
+import { ActivitesListComponent } from './views/activites-list/activites-list.component';
 /*import { FormValidateDirective } from './show-errors/form-validate.directive';*/
 
 
@@ -125,7 +126,8 @@ const appRoutes: Routes = [
     OrderbyPipe,
     AdminNotesComponent,
     AdminNoteComponent,
-    AdminPromotionsComponent
+    AdminPromotionsComponent,
+    ActivitesListComponent
   ],
   imports: [
     BrowserModule,
