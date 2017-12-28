@@ -20,6 +20,7 @@ export const I18N_VALUES = {
     months: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Déc']
   }
 };
+export const CURRENT_SESSION = JSON.parse(localStorage.getItem('currentSession'));
 export const CURRENT_CLIENT = JSON.parse(localStorage.getItem('currentUser'));
 export const CURRENT_GERANT = JSON.parse(localStorage.getItem('currentGerant'));
 

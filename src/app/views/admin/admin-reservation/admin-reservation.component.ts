@@ -29,7 +29,7 @@ export class AdminReservationComponent implements OnInit {
   getReservation(id : String){
   
   	this.reservation.getAllReservations()
-  	.map((result) => result.filter( item => item._id === id ))
+  	.map((result) => result.filter( item => item._id === id && item.statut === "reserve"))
     .subscribe((data) => {
   		this.reservations = data;
   		if (this.reservations.length>0) {

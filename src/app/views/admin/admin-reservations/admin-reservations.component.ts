@@ -27,6 +27,8 @@ export class AdminReservationsComponent implements OnInit {
   getAllReservations(){
 
   	this.reservation.getAllReservations()
+    //(item.statut === "reserve" || item.statut === "annule")
+    .map((result) => result.filter( item => item.statut === "reserve" || item.statut === "annule" ))
   	.subscribe((data) => {
   		this.reservations = data;
   		if (this.reservations.length>0) {

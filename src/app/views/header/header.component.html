@@ -40,7 +40,11 @@
 					
 
 					<app-dropdown-header></app-dropdown-header>
-					<a routerLink="/mon-panier" routerLinkActive="active"><i class="fa fa-shopping-cart"></i></a>
+					<a routerLink="/mon-panier" routerLinkActive="active">
+						<i class="fa fa-shopping-cart"></i> 
+						<span class="" >{{cart_items }}</span>
+						<input type="hidden" [(ngModel)]="cart_items">
+					</a>
 					
 				</nav>
 			</nav>

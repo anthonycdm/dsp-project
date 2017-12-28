@@ -22,6 +22,7 @@ export class PanierComponent implements OnInit {
   id_act : any;
   act:any = [];
   rsv :any;
+  session  = myGlobals.CURRENT_SESSION._id;
   test:any;
   total:number = 0;
   id_rsv : any;
@@ -34,10 +35,10 @@ export class PanierComponent implements OnInit {
               public _rsv : Reservation,
               private auth : AuthService) { }
 
-  getAllReservationsByClient(){
+  getAllReservationsByClient(session){
 
 	  this.reservation.getAllReservations()
-	 // .map((result) => result.filter( item => item.id_cli === id ))
+	  .map((result) => result.filter( item => item.session === session && item.statut === "non-reserve" ))
 	  .subscribe((response)=>{
 
 	  	this.rsv = response;
@@ -87,7 +88,7 @@ export class PanierComponent implements OnInit {
   }
   ngOnInit() {
 
-  	this.getAllReservationsByClient();
+  	this.getAllReservationsByClient(this.session);
   	//this.getActivitesByClient(this.id_act);
   }
 

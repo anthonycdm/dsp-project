@@ -19,7 +19,8 @@ import { DetailsActiviteComponent } from './views/details-activite/index';
 import { AdminMenuComponent,AdminHomeComponent, AdminLoginComponent, AdminHomeActiviteComponent,
          AddActiviteComponent, UpdateActiviteComponent } from './views/admin/index';
 import { UserService, LoginService, ActivitesService, AuthService, CartService, DateService,
-         GerantService, ReservationService, NotesService, CommentairesService } from './services/index';
+         GerantService, ReservationService, NotesService, CommentairesService, PhotosService, 
+         SessionsService } from './services/index';
 import { AuthguardGuard, AdminGuard } from './views/guards/index';
 import { ConfirmDirective } from './directives/index';
 import { BackComponent } from './views/utils/index';
@@ -155,6 +156,8 @@ const appRoutes: Routes = [
     CommentairesService,
     DateService,
     NotesService,
+    PhotosService,
+    SessionsService,
     DatePipe,
     AuthguardGuard,
     AdminGuard,

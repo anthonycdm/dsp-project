@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Activites, Reservation, Commentaires } from '../../models/index';
+import { Location } from '@angular/common';
+
+import { Activites, Reservation, Commentaires, Photo, Session } from '../../models/index';
 import * as myGlobals from '../../globals/index';
-import { ActivitesService,AuthService,ReservationService,CommentairesService } from '../../services/index';
+import { ActivitesService,AuthService,ReservationService,CommentairesService,PhotosService,SessionsService } from '../../services/index';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -23,9 +25,12 @@ export class DetailsActiviteComponent implements OnInit {
   currency = myGlobals.CURRENCY.euro;
   form: FormGroup;
   commentform: FormGroup;
+  imageform: FormGroup;
   prix : number;
-
+  myimg: any;
+  formData: FormData;
   isLoggedIn = this.auth.isLoggedIn();
+  session  =  myGlobals.CURRENT_SESSION._id || null;
   id_activite = this.route.snapshot.paramMap.get('id');
   rsv : Reservation = {
 
@@ -35,7 +40,9 @@ export class DetailsActiviteComponent implements OnInit {
       heure_in  : "",
       heure_out  : "",
       date_rsv : null,
-      _id :null
+      _id :null,
+      statut:'non-reserve',
+      session: this.session
   };
   comment : Commentaires = {
     type: null,
@@ -43,12 +50,33 @@ export class DetailsActiviteComponent implements OnInit {
     date : null,
     id_act : null,
     id_client : null,
-    visible: true,
+    visible: false,
     _id: null
   };
+  imgphoto = {
+     
+    id_activite : null,
+    id_cli : null,
+    nom_img : null,
+   // visible: true,
+    _id: null
+
+  };
+  /*imgphoto : Photo = {
+   
+    id_activite : null,
+    id_cli : null,
+    nom_img : null,
+   // visible: true,
+    _id: null
+  };*/
   constructor(private route : ActivatedRoute,
               private router : Router,
+              private sess : SessionsService,
+              private elem : ElementRef,
               private activite : ActivitesService,
+              private location : Location,
+              private photo : PhotosService,
               private commentaire : CommentairesService,
               private reservation : ReservationService,
               private auth : AuthService, 
@@ -58,6 +86,11 @@ export class DetailsActiviteComponent implements OnInit {
     this.commentform = this.fb.group({
       
         commentTexte:  ['',[Validators.required, Validators.minLength(3)]]
+
+     });
+     this.imageform = this.fb.group({
+      
+        imgUploader:  ['',[Validators.required, Validators.minLength(3)]]
 
      });
      this.form = this.fb.group({
@@ -103,7 +136,65 @@ export class DetailsActiviteComponent implements OnInit {
 
     console.log(date);
     this.rsv.date_rsv =new Date(date);
+    this.sess.addCartItem();
     this.createReservation();
+    //location.reload();
+  }
+
+ onFileChange(event){
+   /* let reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        
+         this.imageform = this.fb.group({
+      
+          img_upload:  file.name
+
+         });
+      };
+    }*/
+    /* let file = event.target.files[0]; 
+     this.imageform.controls['imgUploader'].setValue(file ? file.name : '');*/
+    if(event.target.files.length > 0) {
+      let file = event.target.files[0];
+     // this.form.get('imgUploader').setValue(file);
+     this.imageform.controls['imgUploader'].setValue(file ? file.name : '');
+    }
+   
+  }
+   private prepareSave(): any {
+    let input = new FormData();
+ 
+    input.append('imgUploader', this.imageform.get('imgUploader').value);
+    console.log(input);
+    return input;
+  }
+
+  uploadedPhoto(){
+      this.imgphoto.id_cli = myGlobals.CURRENT_CLIENT._id;
+      this.imgphoto.id_activite = this.id_activite;
+      this.prepareSave();
+      this.imgphoto.nom_img = this.imageform.get('imgUploader').value;
+
+      // console.log(this.imageform.get('img_upload').value);
+
+      //console.log(this.imageform.get('imgUploader').value);
+      /*  this.photo.createPhoto(this.imgphoto).subscribe(data => {
+         console.log(data);
+        
+      });*/
+  }
+
+  submitPhoto(){
+     if(this.isLoggedIn){
+
+       this.uploadedPhoto();
+     } else {
+
+
+     }
 
   }
   createComment() {

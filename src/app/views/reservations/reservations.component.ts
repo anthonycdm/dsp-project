@@ -31,7 +31,7 @@ export class ReservationsComponent implements OnInit {
   getAllReservationsByClient(id : String){
 
 	  this.reservation.getAllReservations()
-	  .map((result) => result.filter( item => item.id_cli === id ))
+	  .map((result) => result.filter( item => item.id_cli === id  && item.statut === "reserve" ))
 	  .subscribe((response)=>{
 
 	  	this.rsv = response;

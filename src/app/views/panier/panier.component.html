@@ -41,7 +41,7 @@
     </tbody>
   </table>
   <app-backlink></app-backlink>
-  <a>Valider la commande</a>
+  <a [routerLink]="['/loginOrder']">Valider la commande</a>
   <p *ngIf="rsv?.length==0">Pas de réservation</p>
 </div>
 </section>
