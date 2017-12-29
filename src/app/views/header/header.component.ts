@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  * as myGlobals from '../../globals/index';
-import { SessionsService } from '../../services/index';
+
 
 
 @Component({
@@ -10,22 +9,17 @@ import { SessionsService } from '../../services/index';
 })
 export class HeaderComponent implements OnInit {
 	
-  cart_items : any;
-
-  constructor(private session : SessionsService) {
+   cart_items : any;
 
 
-  }
+  constructor() {
 
-  getCartItems(){
-
-        this.cart_items = 0 ||localStorage.getItem("cartQty") ;
 
   }
-  getSession(){
 
-    this.getCartItems();
-  	this.session.getSession();
+ getCartItems(){
+
+        this.cart_items =  localStorage.getItem("cartQty") || 0;
 
   }
 
@@ -33,8 +27,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(){  
 
+    this.getCartItems();
 
-  	this.getSession();
 
   }
 

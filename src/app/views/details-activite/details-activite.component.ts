@@ -1,8 +1,9 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { Activites, Reservation, Commentaires, Photo, Session } from '../../models/index';
+import { ConfirmPopupComponent } from '../../views/utils/confirm-popup/confirm-popup.component';
 import * as myGlobals from '../../globals/index';
 import { ActivitesService,AuthService,ReservationService,CommentairesService,PhotosService,SessionsService } from '../../services/index';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -10,17 +11,12 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 @Component({
   selector: 'app-details-activite',
   templateUrl: './details-activite.component.html',
-  styleUrls: ['./details-activite.component.css']
+  styleUrls: ['./details-activite.component.css'],
+  providers : [ConfirmPopupComponent,NgbModal, NgbActiveModal]
 })
 export class DetailsActiviteComponent implements OnInit {
- /* id ="";
-  stringIsNumber(s) {
-    var x = +s; // made cast obvious for demonstration
-    return x.toString() === s;
- }*/
-  myActivity : any =[];
 
-  //rsv :any ={};
+  myActivity : any =[];
   err='';
   currency = myGlobals.CURRENCY.euro;
   form: FormGroup;
@@ -30,7 +26,7 @@ export class DetailsActiviteComponent implements OnInit {
   myimg: any;
   formData: FormData;
   isLoggedIn = this.auth.isLoggedIn();
-  session  =  myGlobals.CURRENT_SESSION._id || null;
+  session : String = JSON.parse(localStorage.getItem('currentSession'))._id;
   id_activite = this.route.snapshot.paramMap.get('id');
   rsv : Reservation = {
 
@@ -62,18 +58,12 @@ export class DetailsActiviteComponent implements OnInit {
     _id: null
 
   };
-  /*imgphoto : Photo = {
-   
-    id_activite : null,
-    id_cli : null,
-    nom_img : null,
-   // visible: true,
-    _id: null
-  };*/
+  
   constructor(private route : ActivatedRoute,
               private router : Router,
               private sess : SessionsService,
               private elem : ElementRef,
+              private modalService: NgbModal,
               private activite : ActivitesService,
               private location : Location,
               private photo : PhotosService,
@@ -81,7 +71,6 @@ export class DetailsActiviteComponent implements OnInit {
               private reservation : ReservationService,
               private auth : AuthService, 
               private fb: FormBuilder) { 
-
 
     this.commentform = this.fb.group({
       
@@ -138,7 +127,8 @@ export class DetailsActiviteComponent implements OnInit {
     this.rsv.date_rsv =new Date(date);
     this.sess.addCartItem();
     this.createReservation();
-    //location.reload();
+    setTimeout(() => {this.openPopup();}, 500);
+    setTimeout(() => {location.reload();}, 4000);
   }
 
  onFileChange(event){
@@ -170,6 +160,14 @@ export class DetailsActiviteComponent implements OnInit {
     input.append('imgUploader', this.imageform.get('imgUploader').value);
     console.log(input);
     return input;
+  }
+  openPopup() {
+    const modalRef = this.modalService.open(ConfirmPopupComponent);
+    modalRef.componentInstance.title = 'Panier';
+    modalRef.componentInstance.content = 'La réservation a bien été ajoutée au panier';
+    modalRef.componentInstance.btClose = 'Fermer';
+
+
   }
 
   uploadedPhoto(){
@@ -244,7 +242,7 @@ export class DetailsActiviteComponent implements OnInit {
   
   }
   ngOnInit() {
-
+    
     this.getActivite();
     this.errComment();
 

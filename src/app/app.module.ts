@@ -22,7 +22,6 @@ import { UserService, LoginService, ActivitesService, AuthService, CartService, 
          GerantService, ReservationService, NotesService, CommentairesService, PhotosService, 
          SessionsService } from './services/index';
 import { AuthguardGuard, AdminGuard } from './views/guards/index';
-import { ConfirmDirective } from './directives/index';
 import { BackComponent } from './views/utils/index';
 import { SliderComponent } from './views/utils/slider/slider.component';
 import { DatepickerComponent } from './views/utils/index';
@@ -49,6 +48,7 @@ import { AdminNotesComponent } from './views/admin/admin-notes/admin-notes.compo
 import { AdminNoteComponent } from './views/admin/admin-note/admin-note.component';
 import { AdminPromotionsComponent } from './views/admin/admin-promotions/admin-promotions.component';
 import { ActivitesListComponent } from './views/activites-list/activites-list.component';
+import { ConfirmPopupComponent } from './views/utils/confirm-popup/confirm-popup.component';
 /*import { FormValidateDirective } from './show-errors/form-validate.directive';*/
 
 
@@ -102,7 +102,6 @@ const appRoutes: Routes = [
     UpdateActiviteComponent,
     AdminHomeActiviteComponent,
     AdminMenuComponent,
-    ConfirmDirective,
     BackComponent,
     SliderComponent,
     DatepickerComponent,
@@ -128,7 +127,8 @@ const appRoutes: Routes = [
     AdminNotesComponent,
     AdminNoteComponent,
     AdminPromotionsComponent,
-    ActivitesListComponent
+    ActivitesListComponent,
+    ConfirmPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -162,6 +162,9 @@ const appRoutes: Routes = [
     AuthguardGuard,
     AdminGuard,
      { provide: LOCALE_ID, useValue: LANGUE }
+    ],
+    entryComponents: [
+      ConfirmPopupComponent
     ],
   bootstrap: [AppComponent]
 })
