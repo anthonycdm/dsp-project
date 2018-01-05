@@ -20,9 +20,25 @@ export const I18N_VALUES = {
     months: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Déc']
   }
 };
+export const ASSET_IMG_PATH = 'assets/img/';
+export const ASSET_JS_PATH = 'assets/js/';
 export const CURRENT_SESSION = JSON.parse(localStorage.getItem('currentSession'));
 export const CURRENT_CLIENT = JSON.parse(localStorage.getItem('currentUser'));
 export const CURRENT_GERANT = JSON.parse(localStorage.getItem('currentGerant'));
+export const PLANNING_COLORS: any = {
+  red: {
+    primary: '#ad2121',
+    secondary: '#FAE3E3'
+  },
+  blue: {
+    primary: '#1e90ff',
+    secondary: '#D1E8FF'
+  },
+  yellow: {
+    primary: '#e3bc08',
+    secondary: '#FDF1BA'
+  }
+};
 
 export const ERROR_FORM =  {
 	

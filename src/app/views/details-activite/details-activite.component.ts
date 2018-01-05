@@ -1,10 +1,13 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { Activites, Reservation, Commentaires, Photo, Session } from '../../models/index';
 import { ConfirmPopupComponent } from '../../views/utils/confirm-popup/confirm-popup.component';
+
 import * as myGlobals from '../../globals/index';
+import { CommentsComponent } from '../../views/utils/comments/comments.component';
+
 import { ActivitesService,AuthService,ReservationService,CommentairesService,PhotosService,SessionsService } from '../../services/index';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -12,10 +15,11 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
   selector: 'app-details-activite',
   templateUrl: './details-activite.component.html',
   styleUrls: ['./details-activite.component.css'],
-  providers : [ConfirmPopupComponent,NgbModal, NgbActiveModal]
+  providers : [ConfirmPopupComponent, CommentsComponent, NgbModal, NgbActiveModal]
 })
 export class DetailsActiviteComponent implements OnInit {
-
+ //@ViewChild(CommentsComponent)
+ @Input() nb_coms;
   myActivity : any =[];
   err='';
   currency = myGlobals.CURRENCY.euro;
@@ -25,6 +29,7 @@ export class DetailsActiviteComponent implements OnInit {
   prix : number;
   myimg: any;
   formData: FormData;
+  //nb_coms : any = [];
   isLoggedIn = this.auth.isLoggedIn();
   session : String = JSON.parse(localStorage.getItem('currentSession'))._id;
   id_activite = this.route.snapshot.paramMap.get('id');
@@ -68,9 +73,11 @@ export class DetailsActiviteComponent implements OnInit {
               private location : Location,
               private photo : PhotosService,
               private commentaire : CommentairesService,
+              private coms : CommentsComponent,
               private reservation : ReservationService,
               private auth : AuthService, 
               private fb: FormBuilder) { 
+
 
     this.commentform = this.fb.group({
       
@@ -105,7 +112,9 @@ export class DetailsActiviteComponent implements OnInit {
                     console.log(this.myActivity);
                     this.prix = this.activite.getPrice (this.myActivity.prix, this.myActivity.remise);
                   });
+                  this.nb_coms = this.coms.nb_coms;
 
+                  console.log('Nombre com : '+this.nb_coms.length);
   }
 
 
@@ -170,6 +179,8 @@ export class DetailsActiviteComponent implements OnInit {
 
   }
 
+
+ 
   uploadedPhoto(){
       this.imgphoto.id_cli = myGlobals.CURRENT_CLIENT._id;
       this.imgphoto.id_activite = this.id_activite;

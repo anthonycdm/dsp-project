@@ -3,10 +3,15 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { LANGUE, GMAP_KEY } from './globals/index';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { Ng4FilesModule } from 'angular4-files-upload';
+
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
+import { CalendarModule } from 'angular-calendar';
 import { RouterModule, Routes} from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 import { AProposComponent } from './views/a-propos/index';
 import { AccueilComponent } from './views/accueil/index';
@@ -49,6 +54,11 @@ import { AdminNoteComponent } from './views/admin/admin-note/admin-note.componen
 import { AdminPromotionsComponent } from './views/admin/admin-promotions/admin-promotions.component';
 import { ActivitesListComponent } from './views/activites-list/activites-list.component';
 import { ConfirmPopupComponent } from './views/utils/confirm-popup/confirm-popup.component';
+import { UploadComponent } from './views/utils/upload/upload.component';
+import { AdminPlanningComponent } from './views/admin/admin-planning/admin-planning.component';
+import { AdminPlanningHeaderComponent } from './views/admin/admin-planning/admin-planning-header/admin-planning-header.component';
+import { PhotoCommentsComponent } from './views/utils/photo-comments/photo-comments.component';
+
 /*import { FormValidateDirective } from './show-errors/form-validate.directive';*/
 
 
@@ -67,6 +77,7 @@ const appRoutes: Routes = [
    { path: 'admin/reservations', component:AdminReservationsComponent, canActivate:[AdminGuard]},
    { path: 'admin/reservation/:id', component:AdminReservationComponent, canActivate:[AdminGuard]},
    { path: 'admin/clients', component:AdminClientsComponent, canActivate:[AdminGuard]},
+   { path: 'admin/planning', component:AdminPlanningComponent/*, canActivate:[AdminGuard]*/},
    { path: 'admin/client/:id', component:AdminClientComponent, canActivate:[AdminGuard]},
    { path: 'admin/notes', component:AdminNotesComponent, canActivate:[AdminGuard]},
    { path: 'admin/note/:id', component:AdminNoteComponent, canActivate:[AdminGuard]},
@@ -128,12 +139,19 @@ const appRoutes: Routes = [
     AdminNoteComponent,
     AdminPromotionsComponent,
     ActivitesListComponent,
-    ConfirmPopupComponent
+    ConfirmPopupComponent,
+    UploadComponent,
+    AdminPlanningComponent,
+    AdminPlanningHeaderComponent,
+    PhotoCommentsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     CommonModule,
+    Ng4FilesModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot(),
     NgbModule.forRoot(),
     HttpModule,
     AgmCoreModule.forRoot({
@@ -164,7 +182,8 @@ const appRoutes: Routes = [
      { provide: LOCALE_ID, useValue: LANGUE }
     ],
     entryComponents: [
-      ConfirmPopupComponent
+      ConfirmPopupComponent,
+      PhotoCommentsComponent
     ],
   bootstrap: [AppComponent]
 })

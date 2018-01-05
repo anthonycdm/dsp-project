@@ -14,7 +14,9 @@ export class CommentsComponent implements OnInit {
   id_cli_com : any;
   id_act_com :any = this.route.snapshot.paramMap.get('id');
   test :any;
+  nb_coms : any = [];
   date_com : String;
+  any_com :String = "Aucun commentaire";
   user_info_com : User[] = [];
   constructor(private route : ActivatedRoute,
               private router : Router,
@@ -38,6 +40,8 @@ export class CommentsComponent implements OnInit {
   	.map((result) =>result.filter( item => item.id_act === id && item.visible === true ))
   	.subscribe((data) => {
   		this.commentaires = data;
+      this.nb_coms = this.commentaires.length;
+      console.log('Nombre de com cote comments --- '+this.nb_coms)
   		if (this.commentaires.length>0) {
 	  		for (let i = 0; i<this.commentaires.length; i++) {
 	  			this.id_cli_com = this.commentaires[i].id_client;

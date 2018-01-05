@@ -14,10 +14,10 @@ export class SliderComponent implements OnInit {
  
   constructor(config: NgbCarouselConfig) { 
   
-    config.interval = 10000;
-    config.wrap = false;
+    config.interval = 5000;
+    config.wrap = true;
     config.keyboard = false;
-  
+
   }
 
   ngOnInit() {

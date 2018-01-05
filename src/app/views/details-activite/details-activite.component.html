@@ -15,7 +15,7 @@
 					</section>
 					<section class="conditions">
 						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
-						Conditions : 
+						<h3 class="">Conditions : </h3>
 						<p class="">
 							
 							 {{myActivity.condition}}
@@ -24,15 +24,11 @@
 					<h3 class="">Photos(3)</h3>
 
 					<section class="share_photos">
-						<form class="" (ngSubmit)="submitPhoto()" [formGroup]="imageform" method="post" enctype="multipart/form-data">
+						<!-- <form class="" (ngSubmit)="submitPhoto()" [formGroup]="imageform" method="post" enctype="multipart/form-data"> -->
 							Ajouter une photo
-							 <input type="file" id="imgUploader" name="imgUploader" accept="image/*" multiple (change)="onFileChange($event)" > 
-							<input type="hidden" name="fileHidden" formControlName="imgUploader"/> 
-							<div class="input-group">	
-								<input type="submit" id="upload_img" name="upload_img" value="Valider">
-							</div>
-						</form>
-						<section class="galerie_photo">
+							<app-upload></app-upload>
+<!-- 						</form>
+ -->						<section class="galerie_photo">
 							<app-slider-activite-photo></app-slider-activite-photo>
 						</section>
 					</section>
@@ -47,9 +43,8 @@
 
 					</section>
 					<section class="commentaires_container" >
-						<h3 class="">Commentaires (3)</h3>
+						<h3 class="">Commentaires ({{nb_coms?.length}})</h3>
 						<h5 class="ajout_comm">Ajouter un commentaire</h5>
-						<!-- <form action="" class="" > -->
 						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn; elsecreateComment" novalidate>
 
 							<textarea name="" id="" cols="30" rows="10" class="" formControlName="commentTexte"></textarea>

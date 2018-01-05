@@ -14,8 +14,8 @@ import 'rxjs/add/operator/map';
 })
 export class LoginOrderComponent implements OnInit {
 	rsv : any;
-	session  = myGlobals.CURRENT_SESSION._id;
-	id_cli = myGlobals.CURRENT_CLIENT._id;
+	session  = JSON.parse(localStorage.getItem('currentSession'))._id;
+	id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
 	panier : Reservation;
 
   constructor( private user : UserService, private reservation : ReservationService) { }

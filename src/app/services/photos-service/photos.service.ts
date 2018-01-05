@@ -20,6 +20,15 @@ export class PhotosService {
   // /photo/add --> ajouter photo
   // 
   
+  upload(fileToUpload: any) {
+    let input = new FormData();
+    input.append("file", fileToUpload);
+
+    return this._http
+        .post(myGlobals.API+"photo/add", input);
+        // .map(result => result.json())
+         //.catch(this.handleError);
+}
   public getAllPhoto() : Observable<Photo[]>{
       return this._http.get(myGlobals.API+"photo/afficher")
          .map(result => result.json())
