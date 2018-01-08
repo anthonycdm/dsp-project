@@ -16,7 +16,7 @@ import 'rxjs/add/operator/map';
 })
 export class ReservationsComponent implements OnInit {
 
-  id_client = myGlobals.CURRENT_CLIENT._id;
+  id_client = JSON.parse(localStorage.getItem('currentUser'))._id;
   locale = myGlobals.LANGUE;
   id_act : any;
   act:any = [];

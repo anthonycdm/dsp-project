@@ -5,27 +5,22 @@
 			<form action="" class="">
 				<label for="nom">Nom :  </label>
 				<div class="input-group">
-					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-pencil"></span></span>
 					<input type="text" id="nom" name="nom" class="form-control" aria-describedby="sizing-addon1" required>
 				</div>
 				<label for="prenom">Prénom : </label>
 				<div class="input-group">
-					<span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-pencil"></span></span>
 					<input type="text" id="prenom" name="prenom" class="form-control" aria-describedby="sizing-addon2" required>
 				</div>
 				<label for="mail">Adresse email : </label>
 				<div class="input-group">
-					<span class="input-group-addon" id="sizing-addon3">@</span>
 					<input type="email" id="mail" name="mail" class="form-control" aria-describedby="sizing-addon3" required>
 				</div>
 				<label for="new_mdp">Mot de passe  : </label>
 				<div class="input-group">
-					<span class="input-group-addon" id="sizing-addon4"><span class="glyphicon glyphicon-asterisk"></span></span>
 					<input  type="password" id="new_mdp" name="new_mdp" class="form-control" aria-describedby="sizing-addon4" required>
 				</div>
 				<label for="confirm_mdp"> Confirmation : </label>
 				<div class="input-group">
-					<span class="input-group-addon" id="sizing-addon5"><span class="glyphicon glyphicon-asterisk"></span></span>
 					<input type="password" id="confirm_mdp" name="confirm_mdp" class="form-control" aria-describedby="sizing-addon5" required>
 				</div>
 				<label for=""></label>
@@ -42,13 +37,11 @@
 
 					<label for="adrs_email">Adresse email :  </label>
 					<div class="input-group">
-						<span class="input-group-addon" id="sizing-addon-cmail"><span class="glyphicon glyphicon-pencil"></span></span>
 						<input type="text" id="adrs_email" name="email" class="form-control" aria-describedby="sizing-addon-cmail" formControlName="email" required>
 					</div>
 					<label for="cmdp">Mot de passe :  </label>
 					<div class="input-group">
-						<span class="input-group-addon" id="sizing-addon-cmdp"><span class="glyphicon glyphicon-pencil"></span></span>
-						<input type="text" id="cmdp" name="password" class="form-control" aria-describedby="sizing-addon-cmdp" required formControlName="password">
+						<input type="password" id="cmdp" name="password" class="form-control" aria-describedby="sizing-addon-cmdp" required formControlName="password">
 					</div>
 					<label for=""></label>
 					<div class="input-group">		
@@ -63,7 +56,6 @@
 				
  				 	<label for="lost_mail">Adresse email : </label>
 					<div class="input-group">
-						<span class="input-group-addon" id="sizing-addon6">@</span>
 						<input type="password" id="lost_mail" name="lost_mail" class="form-control" aria-describedby="sizing-addon6"  ngModel required #lost_mail="ngModel" appFormValidate>
 					</div>
 					  <!-- <app-form-errors [control]="lost_mail"></app-form-errors> -->

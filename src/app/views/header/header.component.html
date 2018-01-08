@@ -14,7 +14,8 @@
 						<a routerLink="/" class="logo"><img src="assets/img/Logo-essai3.png" alt=""></a>
 					</li>
 					<li class="">
-    					<a routerLink="/a-propos" routerLinkActive="active">A propos</a>
+    					<!-- <a routerLink="/a-propos" routerLinkActive="active">A propos</a> -->
+    					<a >{{ 'header.about' | translate}}</a>
 						<a routerLink="/activites" routerLinkActive="active">Activités</a>
 					</li>
 					<li class=""> 
@@ -38,7 +39,7 @@
 				<!-- </ul> -->
 				<nav class="right-header">
 					
-
+					<app-langues></app-langues>
 					<app-dropdown-header></app-dropdown-header>
 					<a routerLink="/mon-panier" routerLinkActive="active">
 						<i class="fa fa-shopping-cart"></i> 

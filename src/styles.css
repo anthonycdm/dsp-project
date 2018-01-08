@@ -89,14 +89,17 @@ body.login input[type="submit"]{
     width: calc(50% - 2px);
     vertical-align: top;
     padding: 15px 20px;
-    background: #f5f5f5;
+}
+.left_login .input-group .form-control:not([type="submit"]),
+.right_login .input-group .form-control:not([type="submit"]){
+       border-color: #30b49a; 
 }
 .right_login h3,.left_login h3, .mdp_oublie h3{
 	font-size: 17px;
     text-align: center;
-    background: #fff;
     padding: 7px;
     margin-bottom: 0;
+    color: #010e19;
 
 }
 .right_login form,.left_login form, .mdp_oublie form{
@@ -185,6 +188,28 @@ section.top_footer ul li{
 
 }
 
+div.langues{
+    display: inline-block;
+    padding: 0;
+    margin-right: 10px;
+}
+.navbar-nav app-langues  .dropdown-menu {
+
+    top: 23px !important;
+    min-width: 36px;
+}
+app-langues a span{
+    color: #30b49a;
+}
+div.langues .col{
+    padding: 0;
+}
+button#other_lang {
+    border: none;
+    background: none;
+    color: #fff;
+    display: inline-block;
+}
 footer.footer section.bottom_footer {
     background: #010e19;
     /* height: 50px; */
@@ -203,6 +228,7 @@ section.container-body{
     position: relative;
     font-size: 13px;
     min-height: 400px;
+    top: 50px;
 
 
 }
@@ -233,7 +259,7 @@ app-details-activite section.container-body{
 
 }
 input[type="text"], input[type="email"], input[type="password"]{
-	border-left: none;
+	/*border-left: none;*/
     border-radius: 0;
 }
 .input-group {
@@ -321,14 +347,15 @@ app-photo-comments textarea {
     width: calc(100% - 22px);    
     vertical-align: top;
 }
-app-photo-comments  #valid_comment {
- background: #010e19;
+app-photo-comments  #valid_comment_photo {
     border: none;
     padding: 7px 0;
-    color: #fff;
+    color: #010e19;
     width: 18px;
     display: block;
     margin-top: 0;
+    background: none;
+    cursor: pointer;
 }
 app-photo-comments .modal-body{
     font-size: 0;
@@ -394,9 +421,13 @@ agm-map {
     margin-right: 20px;
     vertical-align: top;
 }
+app-login input[type="submit"] {
 
+    width: 120px;
+}
 
-app-backlink button{
+app-backlink button,
+app-login input[type="submit"]{
     border: none;
     background: #010e19;
     color: #fff;

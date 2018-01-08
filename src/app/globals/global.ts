@@ -3,6 +3,7 @@ export const PORT = 8000;
 export const API = 'http://soextreme.fr:'+PORT+'/';
 export const NOW = new Date();
 export const LANGUE = 'fr';
+export const LANGUES  = ['fr', 'en'];
 export const CURRENCY = {
 
 	'euro':'€'

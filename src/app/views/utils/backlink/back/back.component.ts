@@ -9,16 +9,17 @@ import { Location } from '@angular/common';
 })
 export class BackComponent implements OnInit {
   title : String = '';
+  nb_article : String = JSON.parse(localStorage.getItem("cart_qty"));
  constructor(private _location: Location) {    }
   backClicked() {
         this._location.back();
   }
   getTitleButton(){
-  	if (this._location.path() == '/mon-panier') {
-  		this.title = "Continuer mes achats"
-  		// code...
-  //	} else if (this._location.path() == '/mon-panier') {
-  		// code...
+    console.log(this.nb_article);
+  	if (this._location.path() == '/mon-panier' && (this.nb_article !== null)) {
+  		this.title = "Continuer mes achats";
+  	//} else if (this._location.path() == '/mon-panier') {
+  	//	this.title = "Continuer mes achats"
   	} else {
 
   		this.title = "Retour";

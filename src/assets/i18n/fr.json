@@ -1,0 +1,46 @@
+{
+	
+	"accueil" : {
+		
+		"slogan" : "Il y aura forcément une activité parmi toutes celles que nous proposons ! Pour vous ..."
+
+
+	},
+
+	"activités" : {
+
+
+	},
+
+	"details":{
+
+	},
+
+	"header":{
+
+		"about": "toto"
+	},
+	
+	"login":{
+
+	},
+
+	"panier":{
+
+	},
+
+	"compte":{
+
+	},
+
+	"reservations":{
+
+	},
+	"not-found":{
+
+	},
+
+	"footer": {
+
+	}
+}

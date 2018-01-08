@@ -1,0 +1,46 @@
+{
+	
+	"accueil" : {
+		
+		"slogan" : "English, right?"
+
+
+	},
+
+	"activités" : {
+
+
+	},
+
+	"details":{
+
+	},
+
+	"header":{
+
+		"about": "ABOUT"
+	},
+	
+	"login":{
+
+	},
+
+	"panier":{
+
+	},
+
+	"compte":{
+
+	},
+
+	"reservations":{
+
+	},
+	"not-found":{
+
+	},
+
+	"footer": {
+
+	}
+}

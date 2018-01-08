@@ -40,9 +40,9 @@
       </tr>
     </tbody>
   </table>
-  <app-backlink></app-backlink>
-  <a [routerLink]="['/loginOrder']">Valider la commande</a>
   <p *ngIf="rsv?.length==0">Pas de réservation</p>
+  <app-backlink></app-backlink>
+  <a *ngIf="rsv?.length>0" [routerLink]="['/loginOrder']">Valider la commande</a>
 </div>
 </section>
 
