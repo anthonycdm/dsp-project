@@ -16,7 +16,6 @@ export class CommentsComponent implements OnInit {
   test :any;
   nb_coms : any = [];
   date_com : String;
-  any_com :String = "Aucun commentaire";
   user_info_com : User[] = [];
   constructor(private route : ActivatedRoute,
               private router : Router,

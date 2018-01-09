@@ -1,3 +1,5 @@
+<app-spinner> </app-spinner>
+
 <header class="header navbar-fixed-top">
 		<section class="head">
 			<nav  class="navbar navbar-default nav navbar-nav navbar-left">	
@@ -11,37 +13,22 @@
 		        </div> -->
 				<ul class="main-nav"  id="navbar">
 					<li class="">
-						<a routerLink="/" class="logo"><img src="assets/img/Logo-essai3.png" alt=""></a>
+						<a (click)="onClick('')" class="logo"><img src="assets/img/Logo-essai3.png" alt="" ></a>
 					</li>
 					<li class="">
     					<!-- <a routerLink="/a-propos" routerLinkActive="active">A propos</a> -->
-    					<a >{{ 'header.about' | translate}}</a>
-						<a routerLink="/activites" routerLinkActive="active">Activités</a>
+    					<a (click)="onClick('a-propos')" [class.active-menu]="isActive('/a-propos')">{{ 'header.main_menu.about' | translate}}</a>
+						<a (click)="onClick('activites')" [class.active-menu]="isActive('/activites')">{{ 'header.main_menu.act' | translate}}</a>
 					</li>
 					<li class=""> 
 					</li>
 						
 				</ul>
-				<!-- <a routerLink="/a-propos" class="logo"><img src="assets/img/logo-d.png" alt=""></a> -->
-				<!-- <ul class="nav navbar-nav navbar-right"> -->
-			        <!-- <li class="dropdown"> -->
-			          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a> -->
-			          <!-- <ul class="dropdown-menu"> -->
-			            <!-- <li> -->
-    						<!-- <a routerLink="/login" routerLinkActive="active">Se connecter / S'inscrire</a> -->
-			            <!-- </li> -->
-			            <!-- <li><a href="#">Another action</a></li> -->
-			            <!-- <li><a href="#">Something else here</a></li> -->
-			            <!-- <li role="separator" class="divider"></li> -->
-			            <!-- <li><a href="#">Separated link</a></li> -->
-			          <!-- </ul> -->
-			        <!-- </li> -->
-				<!-- </ul> -->
 				<nav class="right-header">
 					
 					<app-langues></app-langues>
 					<app-dropdown-header></app-dropdown-header>
-					<a routerLink="/mon-panier" routerLinkActive="active">
+					<a (click)="onClick('mon-panier')">
 						<i class="fa fa-shopping-cart"></i> 
 						<span class="" >{{cart_items }}</span>
 						<input type="hidden" [(ngModel)]="cart_items">

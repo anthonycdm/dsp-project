@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -10,21 +11,26 @@ import { Location } from '@angular/common';
 export class BackComponent implements OnInit {
   title : String = '';
   nb_article : String = JSON.parse(localStorage.getItem("cart_qty"));
- constructor(private _location: Location) {    }
+  used_trans : string='';
+  
+ constructor(private _location: Location, private translate : TranslateService) {    }
   backClicked() {
         this._location.back();
   }
   getTitleButton(){
     console.log(this.nb_article);
   	if (this._location.path() == '/mon-panier' && (this.nb_article !== null)) {
-  		this.title = "Continuer mes achats";
-  	//} else if (this._location.path() == '/mon-panier') {
-  	//	this.title = "Continuer mes achats"
+
+       this.used_trans = "backlinks.continue";
+
   	} else {
 
-  		this.title = "Retour";
+  		 this.used_trans = "backlinks.back";
 
   	}
+    this.translate.get(this.used_trans).subscribe((res: String)=>{
+        this.title = res;      
+    });
   	return this.title;
   }
   ngOnInit() {

@@ -3,14 +3,16 @@
 	<section class="about">
 		<section class="infos_agence">
 			<article class="">
-				<p>Depuis 2004, <a [routerLink]="['']">SO'Extrême</a> est le spécialiste des sensations fortes.</p>
-				<p>Que ce soit pour se faire un petit frisson ou pour offrir un coffret cadeau à un proche.</p>
-				<p><a [routerLink]="['']">SO'Extrême</a> s'efforce de vous proposer une multitude d'activités au meilleur prix.</p>
+				
+				<p [innerHTML]="'a-propos.intro.para1' | translate"></p>
+				<p [innerHTML]="'a-propos.intro.para2' | translate"></p>
+				<p [innerHTML]="'a-propos.intro.para3' | translate"></p>
+				
 				<ul>
-					<li><i class="fa fa-circle"></i> saut en parachute,</li>
-					<li><i class="fa fa-circle"></i> saut à l'élastique,</li>
-					<li><i class="fa fa-circle"></i> rafting</li>
-					<li><i class="fa fa-circle"></i> canoë kayak ...</li>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item1' | translate}}</li>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item2' | translate}}</li>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item3' | translate}}</li>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item4' | translate}}</li>
 				</ul>     
 
 			</article>
@@ -19,24 +21,16 @@
 		<section class="infos_agence">
 			<ul class="">
 				<li class="">
-					<span class="">
-						<span>
-							<i class="fa fa-map-marker"></i>
-							 Localisation :
-						</span> 
-						Gorges du Verdon(Alpes Haut Provence)
+					<span class=""  [innerHTML]="'a-propos.info_agence.localisation' | translate">
+						
 					</span>
 				</li>
 				<li class="">
-					<span class="">
-						<span>
-							<i class="fa fa-building"></i>
-							Siège social :
-						</span>
-						 route de Napoléon, CASTELLANE 04120
+					<span class=""  [innerHTML]="'a-propos.info_agence.siege_soc' | translate">
+						
 					</span>
 				</li>
-				<li class=""><span class="">SARL au capital social de 30 000€</span></li>
+				<li class=""><span class="" [innerHTML]="'a-propos.info_agence.cap_soc' | translate"></span></li>
 			</ul>
 		</section>
 	</section>

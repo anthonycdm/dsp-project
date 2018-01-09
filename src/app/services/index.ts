@@ -10,6 +10,7 @@ export * from './gerant-service/index';
 export * from './cart-service/index';
 export * from './date-service/index';
 export * from './sessions-service/index';
+export * from './loader-page-service/index';
 
 
 

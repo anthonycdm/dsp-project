@@ -8,7 +8,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService, LoginService, ActivitesService, AuthService, CartService, DateService,
          GerantService, ReservationService, NotesService, CommentairesService, PhotosService, 
-         SessionsService } from './services/index';
+         SessionsService, LoaderPageService } from './services/index';
 import { OrderbyPipe } from './pipes/orderby.pipe';
 import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
 
@@ -17,7 +17,7 @@ import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
   declarations: [
     AppComponent ,
     OrderbyPipe
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,6 +39,7 @@ import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
     NotesService,
     PhotosService,
     SessionsService,
+    LoaderPageService,
     DatePipe
 
     ],

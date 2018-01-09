@@ -9,6 +9,7 @@ html,body{
 a:hover {
     color: #fff;
 }
+a{cursor: pointer;}
 :focus,button:focus{outline: none;}
 input[type=number] {-moz-appearance: textfield;}
 input::-webkit-outer-spin-button,
@@ -44,7 +45,7 @@ app-dropdown-header{
     display: inline-block;
     margin-right: 30px;
 }
-app-dropdown-header+a {
+app-dropdown-header+a:not([href]):not([tabindex]) {
     display: inline-block;
     color: #fff;
 }
@@ -607,13 +608,17 @@ section.activites article:nth-child(3n+3) {
     margin: 0 15px;
     vertical-align: bottom;
 }
-.main-nav li a{
+.main-nav li a:not([href]),.main-nav li a:not([href]):hover{
 
 	/*color: #37241d;*/
     color: #fff;
     padding:0 15px;
     
 	
+}
+.main-nav li a.active-menu, .main-nav li a.active-menu:hover{
+    color: #30b49a;
+
 }
 app-datepicker input.form-control{
     color: #010e19;

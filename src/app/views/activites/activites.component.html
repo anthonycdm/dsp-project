@@ -1,50 +1,9 @@
 <app-header></app-header>
 	<section class="container-body">
-		<h3 class="title">Les activités</h3>
+		<h3 class="title">{{ 'activites.title' | translate}}</h3>
 		<section class="activites">
-			<header class=""><h4 class="">Sélectionnez une activité :</h4></header>
+			<header class=""><h4 class="">{{ 'activites.subtitle' | translate}}</h4></header>
 			<app-activites-list></app-activites-list>
-			<!-- <article *ngFor="let i = index ; let activite of myActivities">
-				<a [routerLink]="['/activite/', activite._id]">
-					<img src="http://fakeimg.pl/350x200/ccc/000?text=">
-					<section class="">
-						<h4 class="">{{activite.libelle }}</h4>
-					</section>
-				</a>
-			</article> -->
-			<!-- <article>
-				<a >
-					<img src="assets/img/parachute.jpg">
-					<section class="">
-						<h4 class="">Saut en parachute</h4>
-					</section>
-				</a>
-			</article>
-			<article>
-				<a >
-					<img src="assets/img/canoe-kayak.jpg">
-					<section class="">
-						<h4 class="">Canoé Kayak</h4>
-					</section>
-				</a>
-			</article>
-			<article>
-				<a >
-					<img src="assets/img/rafting.jpg">
-					<section class="">
-						<h4 class="">Rafting</h4>
-					</section>
-				</a>
-			</article>
-			<article>
-				<a >
-					<img src="assets/img/elastique.jpg">
-					<section class="">
-						<h4 class="">Élastique</h4>
-					</section>
-				</a>
-			</article> -->
-			
 		</section>
 	</section>
 <app-footer></app-footer>

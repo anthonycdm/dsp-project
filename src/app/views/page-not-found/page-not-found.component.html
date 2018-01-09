@@ -1,10 +1,8 @@
 <app-header></app-header>
 <section class="container-body">
 
-<div class="">
-  <p>Oups,</p>
-  <p>il s'est produit une erreur.</p>
-  <p><a [routerLink]="['']">Cliquez ici pour revenir à la page d'accueil</a></p>
+<div class="" [innerHTML]="'not-found.message' | translate">
+  
 </div>
 </section>
 <app-footer></app-footer>

@@ -15,17 +15,18 @@
 					</section>
 					<section class="conditions">
 						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
-						<h3 class="">Conditions : </h3>
+						<h3 class="">{{ 'details.conditions.title' | translate}} </h3>
 						<p class="">
 							
 							 {{myActivity.condition}}
 						</p>
 					</section>
-					<h3 class="">Photos(3)</h3>
+					<h3 class="">{{ 'details.photos.title' | translate}}(3)</h3>
 
 					<section class="share_photos">
 						<!-- <form class="" (ngSubmit)="submitPhoto()" [formGroup]="imageform" method="post" enctype="multipart/form-data"> -->
-							Ajouter une photo
+							
+							{{ 'details.photos.add' | translate}}
 							<app-upload></app-upload>
 <!-- 						</form>
  -->						<section class="galerie_photo">
@@ -34,7 +35,7 @@
 					</section>
 					<section class="notation" *ngIf="isLoggedIn;">
 						
-						<h3 class="">Noter cette activité</h3>
+						<h3 class="">{{ 'details.note_act.title' | translate}}</h3>
 						<form action="" class="">
 							<section class="stars_notation">
 								<app-rating></app-rating>
@@ -43,13 +44,13 @@
 
 					</section>
 					<section class="commentaires_container" >
-						<h3 class="">Commentaires ({{nb_coms?.length}})</h3>
-						<h5 class="ajout_comm">Ajouter un commentaire</h5>
+						<h3 class="">{{ 'details.comment.title' | translate}} ({{nb_coms?.length}})</h3>
+						<h5 class="ajout_comm">{{ 'details.comment.add' | translate}}</h5>
 						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn; elsecreateComment" novalidate>
 
 							<textarea name="" id="" cols="30" rows="10" class="" formControlName="commentTexte"></textarea>
 							<div class="input-group">	
-								<input type="submit" id="valid_comment" name="valid_comment" value="Valider">
+								<input type="submit" id="valid_comment" name="valid_comment" value="">
 							</div>
 						</form>
 						<div class="mess" #elsecreateComment>
@@ -67,7 +68,7 @@
 					<app-gmap-activite></app-gmap-activite>
 				</section>
 				<form action="" class="" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
-					<label for="date_resa">Réserver une activité : </label>
+					<label for="date_resa">{{ 'details.reserv.title' | translate}} </label>
 					<div class="input-group">
 						<span class="input-group-addon" id="sizing-addon7">
 							<span class="glyphicon glyphicon-calendar"></span>
@@ -83,11 +84,11 @@
 						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
 						<p class="">
 							
-							<span>Prix :  {{prix}} {{currency}} </span>
-							<span *ngIf="myActivity.remise !== null"> au lieu de <span>{{myActivity.prix}} {{currency}}</span></span>
+							<span>{{ 'details.reserv.prix_title' | translate}}  {{prix}} {{currency}} </span>
+							<span *ngIf="myActivity.remise !== null"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
 						</p>
 					</section>
-					<input type="submit" id="insc_resa" name="insc_resa" value="S'inscrire à l'activité" >
+					<input type="submit" id="insc_resa" name="insc_resa" value="{{ 'details.reserv.valid' | translate}}" >
 				</form>
 			</section>
 		</section>

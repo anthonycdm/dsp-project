@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { Activites, Reservation, Commentaires, Photo, Session } from '../../models/index';
 import { ConfirmPopupComponent } from '../../views/utils/confirm-popup/confirm-popup.component';
-
+import {TranslateService} from '@ngx-translate/core';
 import * as myGlobals from '../../globals/index';
 import { CommentsComponent } from '../../views/utils/comments/comments.component';
 
@@ -21,7 +21,7 @@ export class DetailsActiviteComponent implements OnInit {
  //@ViewChild(CommentsComponent)
  @Input() nb_coms;
   myActivity : any =[];
-  err='';
+  err: String ='';
   currency = myGlobals.CURRENCY.euro;
   form: FormGroup;
   commentform: FormGroup;
@@ -72,6 +72,7 @@ export class DetailsActiviteComponent implements OnInit {
               private activite : ActivitesService,
               private location : Location,
               private photo : PhotosService,
+              private translate : TranslateService,
               private commentaire : CommentairesService,
               private coms : CommentsComponent,
               private reservation : ReservationService,
@@ -172,11 +173,15 @@ export class DetailsActiviteComponent implements OnInit {
   }
   openPopup() {
     const modalRef = this.modalService.open(ConfirmPopupComponent);
-    modalRef.componentInstance.title = 'Panier';
-    modalRef.componentInstance.content = 'La réservation a bien été ajoutée au panier';
-    modalRef.componentInstance.btClose = 'Fermer';
+    var popup_info = ["details.reserv.popup.success.title",
+                      "details.reserv.popup.success.content",
+                      "details.reserv.popup.success.btclose"];
 
-
+    this.translate.get(popup_info).subscribe((res:String) =>{
+        modalRef.componentInstance.title   = res[popup_info[0]];
+        modalRef.componentInstance.content = res[popup_info[1]];
+        modalRef.componentInstance.btClose = res[popup_info[2]];
+      });
   }
 
 
@@ -241,8 +246,12 @@ export class DetailsActiviteComponent implements OnInit {
     
     if(!this.isLoggedIn){
       console.log('not connected');
-      this.err=myGlobals.ERROR_FORM.commentaire.nologgedIn.message;
+      //this.err=myGlobals.ERROR_FORM.commentaire.nologgedIn.message;
+      this.translate.get("details.comment.err.login").subscribe((res:String) =>{
+        this.err = res;
+      })
       
+       
     } else {
       
      

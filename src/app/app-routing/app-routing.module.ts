@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng4FilesModule } from 'angular4-files-upload';
 import { CalendarModule } from 'angular-calendar';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { AgmCoreModule } from '@agm/core';
 import { SharedModule } from '../../app/shared/shared.module';
 import { AProposComponent } from '../views/a-propos/index';
@@ -51,6 +52,7 @@ import { AdminPlanningHeaderComponent } from '../views/admin/admin-planning/admi
 import { PhotoCommentsComponent } from '../views/utils/photo-comments/photo-comments.component';
 import { LanguesComponent } from '../views/utils/langues/langues.component';
 import { AuthguardGuard, AdminGuard } from '../views/guards/index';
+import { PanierMenuComponent } from '../views/utils/panier-menu/panier-menu.component';
 
 
 
@@ -94,6 +96,7 @@ export const appRoutes: Routes = [
     ),
     SharedModule,
     Ng4FilesModule,
+    Ng4LoadingSpinnerModule,
     CalendarModule.forRoot(),
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
@@ -146,7 +149,8 @@ export const appRoutes: Routes = [
     AdminPlanningComponent,
     AdminPlanningHeaderComponent,
     PhotoCommentsComponent,
-    LanguesComponent
+    LanguesComponent,
+    PanierMenuComponent
     ],
   	providers : [
   	AuthguardGuard,

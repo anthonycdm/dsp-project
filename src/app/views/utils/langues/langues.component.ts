@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import * as myGlobals from '../../../globals/index';
+import * as myLocales from '../../../../assets/locales.json';
 
 @Component({
   selector: 'app-langues',
@@ -9,20 +10,19 @@ import * as myGlobals from '../../../globals/index';
 })
 export class LanguesComponent implements OnInit {
 
-  langues : Array<String> = ['fr','en'];
+  langues : Array<String> = (<any>myLocales).locales;
   other_lang :  Array<String> = [];
   langue_cur : any;
   constructor(private translate: TranslateService) {
-	translate.setDefaultLang(myGlobals.LANGUE);
-	
-  	// console.log(translate.currentLang);
-  	// this.langue_cur = translate.currentLang;
+	  
+    translate.setDefaultLang(myGlobals.LANGUE);
   	this.getCurrentLangue();
 
   }
   getCurrentLangue(){
   	if (localStorage.getItem("langue") === null || localStorage.getItem("langue") === "undefined") {
 		this.langue_cur = myGlobals.LANGUE;
+    localStorage.setItem("langue",JSON.stringify(this.langue_cur));
 
 	} else {
 
