@@ -146,19 +146,48 @@ body.login .input-group:last-child{
     border: none;
     border-radius: 0;
 }
-header.header{
+header.header, {
 	height: 120px;
 	width: 100%;
 	/*background: #ece5ce;*/
         background: #010e19;
 }
+.bg-dark{
+    background: #010e19 !important;
+}
 .right-header {
     position: absolute;
-    right: 60px;
+    right: 10%;
     top: 47px;
+}
+app-dropdown-header .dropdown-menu{
+    margin-top: 10px;
+    margin-left: 40px;
+}
+app-langues .dropdown-menu{
+    width: 43px;
+    min-width: 0;
+    text-align: left;
+    margin-top: -2px;
+    padding-left: 7px;
+}
+
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: #fff;
+}
+li.nav-item {
+    margin-right: 10px;
+}
+li.nav-item:last-child {
+    margin-right: 0;
 }
 .mdp_oublie{
 	clear: both;
+}
+#navbar{
+    margin: 0 auto;
 }
 .navbar-default .navbar-collapse {
     border: none;
@@ -421,6 +450,7 @@ agm-map {
     display: inline-block;
     margin-right: 20px;
     vertical-align: top;
+    width: calc(50% - 24px);
 }
 app-login input[type="submit"] {
 
@@ -675,30 +705,34 @@ app-dropdown-header .row{
     margin-right: 0;
     margin-left: 0;
 }
-#navbar>li:first-child{
+header.header{
+    background: #010e19;
+}
+.navbar>a{
     float: left; 
      width: 100px;
 }
+section.head{
+        display: block;
+    width: 80%;
+    margin: 0 auto;
+
+}
 #navbar>li:nth-child(2){
-    padding: 37px 0;  
+    /*padding: 37px 0; */ 
     z-index: 999;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // right: 0;
-    // margin: 0 auto;
     text-align: center;
 }
-#navbar>li:first-child a{
+.navbar>a{
     padding:0;
 }
-#navbar>li:nth-child(1) img{
+.navbar>a img{
          width: 100%;
     height: auto;
 }
-#navbar>li:last-child{
+/*#navbar>li:last-child{
     float: right;
-}
+}*/
 .navbar-nav.navbar-right>li {
     float: none;
 }
@@ -789,8 +823,97 @@ app-page-not-found .container-body div p:nth-child(3) a{
     font-size: 20px;
     color: #fff;
 }
+@media (max-width: 992px){
+    .navbar-header {
+        position: absolute;
+    }
+    a.logo+button.navbar-toggler{
+        position: absolute;
+        top: 25px;
+        border: none;
+    }
+    .right-header {
+        right: 5%;
+        top: 30px;
+        font-size: 15px;
+
+    }
+    li.nav-item {
+        margin-right: 0;
+        text-align: center;
+        padding: 10px;
+    }
+    #navbar {
+        margin: 30px auto 0px;
+    }
+    .navbar>a {
+        width: 80px;
+    }
+    .navbar-dark .navbar-nav .nav-link{
+        font-size: 16px;
+    }
+    .right_login, .left_login {
+ 
+        width: 100%;
+
+    }
+}
 @media (max-width: 768px){
-	.navbar-header {
-	    position: absolute;
-	}
+	
+    .right-header {
+ 
+        font-size: 12px;
+    }
+    .navbar>a {
+        width: 67px;
+    }
+
+    section.top_footer ul li {
+
+        font-size: 13px;
+    }
+    .infos_agence {
+        display: block;
+        margin-right: 0;
+        width: 100%;
+    }
+    .navbar-dark .navbar-nav .nav-link{
+        font-size: 13px;
+    }
+    .dropdown-item {
+
+        font-size: 12px;
+    }
+    section.head {
+        position: relative;
+    }
+    .left_activite, .right_activite{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    section.head {
+        width: 90%;
+    }
+}
+@media (max-width: 580px){
+    .right-header {
+        right: 0;
+        top: 85px;
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    .head .navbar {
+     
+        padding-bottom: 40px;
+    }
+    
+    section.top_footer ul li {
+        display: block;
+        margin: 0 7px;
+        padding: 5px 0;
+        font-size: 12px;
+    }
+
 }

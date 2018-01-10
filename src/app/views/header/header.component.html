@@ -2,29 +2,23 @@
 
 <header class="header navbar-fixed-top">
 		<section class="head">
-			<nav  class="navbar navbar-default nav navbar-nav navbar-left">	
-				<!-- <div class="navbar-header">
-		          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		            <span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		          </button>
-		        </div> -->
-				<ul class="main-nav"  id="navbar">
-					<li class="">
-						<a (click)="onClick('')" class="logo"><img src="assets/img/Logo-essai3.png" alt="" ></a>
-					</li>
-					<li class="">
-    					<!-- <a routerLink="/a-propos" routerLinkActive="active">A propos</a> -->
-    					<a (click)="onClick('a-propos')" [class.active-menu]="isActive('/a-propos')">{{ 'header.main_menu.about' | translate}}</a>
-						<a (click)="onClick('activites')" [class.active-menu]="isActive('/activites')">{{ 'header.main_menu.act' | translate}}</a>
-					</li>
-					<li class=""> 
-					</li>
-						
-				</ul>
-				<nav class="right-header">
+			<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			  <a class="navbar-brand"  (click)="onClick('')" class="logo"><img src="assets/img/Logo-essai3.png" alt="" ></a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+			    <ul class="navbar-nav" id="navbar">
+			      <li class="nav-item">
+			        <a class="nav-link" (click)="onClick('a-propos')" [class.active-menu]="isActive('/a-propos')">{{ 'header.main_menu.about' | translate}}</a>
+			      </li>    
+			      <li class="nav-item">
+			        <a class="nav-link" (click)="onClick('activites')" [class.active-menu]="isActive('/activites')">{{ 'header.main_menu.act' | translate}}</a>
+			      </li>
+			    </ul>
+			  </div>  
+			</nav>
+			<nav class="right-header">
 					
 					<app-langues></app-langues>
 					<app-dropdown-header></app-dropdown-header>
@@ -35,6 +29,5 @@
 					</a>
 					
 				</nav>
-			</nav>
 		</section>
 	</header>

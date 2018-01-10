@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MetasService } from '../../services/index';
 
 @Component({
   selector: 'app-accueil',
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilComponent implements OnInit {
 
 
- constructor() {
+ constructor(private meta : MetasService ) {
 
 
   }
@@ -18,6 +18,8 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit(){  
 
+  	this.meta.setTitle('metas.accueil.title');
+  	this.meta.setOtherMetas('metas.accueil.other');
   }
 
 

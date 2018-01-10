@@ -1,8 +1,9 @@
 <footer class="footer">
 		<section class="top_footer">
 			<ul class="">
-				<li class=""><a href="views/cgu.html">{{'footer.cgv' | translate}}</a></li>
-				<li class=""><a href="views/cgu.html">{{'footer.cgu' | translate}}</a></li>
+				<li class=""><a (click)="onClick('cgv')">{{'footer.cgv' | translate}}</a></li>
+				<li class=""><a (click)="onClick('cgu')">{{'footer.cgu' | translate}}</a></li>
+				<li class=""><a (click)="onClick('mentions-legales')">{{'footer.mentions' | translate}}</a></li>
 				<!-- <li class=""><a href=""></a></li>
 				<li class=""><a href=""></a></li>
 				<li class=""><a href=""></a></li>

@@ -1,5 +1,35 @@
 {
-	
+	"metas"	: {
+
+		"accueil" : {
+
+			"title":"So Extrême | Fr",
+			
+			"other":{
+
+				"description":"bla bla bla",
+				"og:title":"",
+				"og:type":"",
+				"og:url":"",
+				"og:image":""
+			}
+			
+		},
+		"a-propos" : {
+
+		},
+
+		"activites": {
+
+
+		},
+
+		"login" : {
+
+		}
+
+	},
+
 	"accueil" : {
 		
 		"slogan" : "Il y aura forcément une activité parmi toutes celles que nous proposons ! Pour vous ..."
@@ -147,7 +177,8 @@
 
 	"footer": {
 		"cgv":"Cgv",
-		"cgu":"Cgu"
+		"cgu":"Cgu",
+		"mentions":"Mentions légales"
 	}
 
 }

@@ -53,7 +53,9 @@ import { PhotoCommentsComponent } from '../views/utils/photo-comments/photo-comm
 import { LanguesComponent } from '../views/utils/langues/langues.component';
 import { AuthguardGuard, AdminGuard } from '../views/guards/index';
 import { PanierMenuComponent } from '../views/utils/panier-menu/panier-menu.component';
-
+import { CgvComponent } from '../views/cgv/cgv.component';
+import { CguComponent } from '../views/cgu/cgu.component';
+import { MentionsLegalesComponent } from '../views/mentions-legales/mentions-legales.component';
 
 
 export const appRoutes: Routes = [
@@ -79,6 +81,9 @@ export const appRoutes: Routes = [
    { path: 'activite/:id', component: DetailsActiviteComponent },
    { path: 'loginOrder', component: LoginOrderComponent, canActivate:[AuthguardGuard] },
    { path: 'mon-panier', component: PanierComponent},
+   { path: 'cgu', component: CguComponent},
+   { path: 'cgv', component: CgvComponent},
+   { path: 'mentions-legales', component: MentionsLegalesComponent},
    { path: 'mon-compte', component: MonCompteComponent, canActivate:[AuthguardGuard] },
    { path: 'mes-reservations', component: ReservationsComponent, canActivate:[AuthguardGuard] },
    { path: '**', component: PageNotFoundComponent }
@@ -150,7 +155,10 @@ export const appRoutes: Routes = [
     AdminPlanningHeaderComponent,
     PhotoCommentsComponent,
     LanguesComponent,
-    PanierMenuComponent
+    PanierMenuComponent,
+    CgvComponent,
+    CguComponent,
+    MentionsLegalesComponent
     ],
   	providers : [
   	AuthguardGuard,
