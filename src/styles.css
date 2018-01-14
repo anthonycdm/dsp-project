@@ -607,6 +607,11 @@ section.container-body.admin{
     color: #010e19;
     font-size: 17px;
 }
+app-login-order  #paypal-button{
+    float: right;
+    display: block;
+}
+
 .right_activite .prix{
     font-size: 17px;
     color: #010e19;

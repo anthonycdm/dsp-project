@@ -35,9 +35,8 @@ export class DropdownHeaderComponent implements OnInit {
   logout(){
 
     this.authService.logout();
-   /* this.router.navigate(['/']);
-    location.reload();*/
-    this.onClick('/');
+    this.router.navigate(['/']);
+    location.reload();
 
   }
 }

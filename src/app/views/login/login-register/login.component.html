@@ -2,26 +2,26 @@
 <section class="container-body">
 		<section class="left_login">
 			<h3 class="">{{ 'login.creer_compte_title' | translate}}</h3>
-			<form action="" class="">
+			<form name="create_user_form" (ngSubmit)="createAccount()" [formGroup]="create_user_form" novalidate >
 				<label for="nom">{{ 'login.nom' | translate}}  </label>
 				<div class="input-group">
-					<input type="text" id="nom" name="nom" class="form-control" aria-describedby="sizing-addon1" required>
+					<input type="text" id="nom" name="nom" class="form-control" aria-describedby="sizing-addon1" formControlName="nom" required>
 				</div>
 				<label for="prenom">{{ 'login.prenom' | translate}} </label>
 				<div class="input-group">
-					<input type="text" id="prenom" name="prenom" class="form-control" aria-describedby="sizing-addon2" required>
+					<input type="text" id="prenom" name="prenom" class="form-control" aria-describedby="sizing-addon2" formControlName="prenom" required>
 				</div>
 				<label for="mail">{{ 'login.mail' | translate}} </label>
 				<div class="input-group">
-					<input type="email" id="mail" name="mail" class="form-control" aria-describedby="sizing-addon3" required>
+					<input type="email" id="mail" name="mail" class="form-control" aria-describedby="sizing-addon3" formControlName="email" required>
 				</div>
 				<label for="new_mdp">{{ 'login.mdp' | translate}} </label>
 				<div class="input-group">
-					<input  type="password" id="new_mdp" name="new_mdp" class="form-control" aria-describedby="sizing-addon4" required>
+					<input  type="password" id="new_mdp" name="new_mdp" class="form-control" aria-describedby="sizing-addon4" formControlName="password" required>
 				</div>
 				<label for="confirm_mdp"> {{ 'login.confirm_mdp' | translate}} </label>
 				<div class="input-group">
-					<input type="password" id="confirm_mdp" name="confirm_mdp" class="form-control" aria-describedby="sizing-addon5" required>
+					<input type="password" id="confirm_mdp" name="confirm_mdp" class="form-control" aria-describedby="sizing-addon5" formControlName="confirm_password" required>
 				</div>
 				<label for=""></label>
 				<div class="input-group">	

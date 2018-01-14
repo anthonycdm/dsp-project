@@ -1,5 +1,5 @@
 import { BrowserModule, Title, Meta } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component, ElementRef, NgZone} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { CommonModule, DatePipe } from '@angular/common';
 import { AppComponent } from './app.component';
@@ -11,7 +11,6 @@ import { UserService, LoginService, ActivitesService, AuthService, CartService, 
          SessionsService, LoaderPageService, MetasService } from './services/index';
 import { OrderbyPipe } from './pipes/orderby.pipe';
 import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
-
 
 
 @NgModule({

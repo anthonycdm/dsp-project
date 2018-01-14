@@ -9,6 +9,9 @@ import { BrowserModule } from "@angular/platform-browser";
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
+/*export function LocalizeFactory(translate, location, settings, http)  {
+    return new LocalizeRouterHttpLoader(translate, location, settings, http);
+}*/
 
 @NgModule({
   imports: [
@@ -26,7 +29,18 @@ export function HttpLoaderFactory(http: HttpClient) {
   exports:[
   CommonModule, 
   HttpClientModule,
-  TranslateModule
+  TranslateModule,
+  //LocalizeRouterModule
   ]
 })
 export class SharedModule { }
+/*
+
+, {
+      parser: {
+        provide: LocalizeParser,
+        useFactory: LocalizeFactory,
+        deps: [TranslateService, Location, LocalizeRouterSettings, HttpClient]
+      }
+    }
+ */
