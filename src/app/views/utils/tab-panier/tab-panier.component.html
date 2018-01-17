@@ -3,9 +3,9 @@
       <tr>
       	<!-- <th>Date</th> -->
         <!-- <th>N° de Réservation</th> -->
-        <th>Activité</th>
-        <th>Date prévue pour l'activité</th>
-        <th>Prix</th>
+        <th>{{'panier.entete.item1' | translate}}</th>
+        <th>{{'panier.entete.item2' | translate}}</th>
+        <th>{{'panier.entete.item3' | translate}}</th>
         <th *ngIf=" display === true"></th>
       </tr>
     </thead>
@@ -20,7 +20,8 @@
 				{{act[i]?.libelle}}
 			</a>
 		</td>
-        <td>{{res?.date_rsv | date:'dd MMMM yyyy':'':locale }}</td>
+        <td *ngIf="locale === 'fr'">{{res?.date_rsv | date:'dd MMMM yyyy':'':locale }}</td>
+        <td *ngIf="locale !== 'fr'">{{res?.date_rsv | date:'MMMM, dd yyyy':'':locale }}</td>
         <td>{{act[i]?.prix}} {{currency}}</td>
         <td *ngIf=" display === true"><a (click)="onSubmit()"><i class="fa fa-times"></i></a></td>
 
@@ -28,12 +29,12 @@
       </tr>  
       <tr>
       	<td></td>
-      	<td>Total : </td>
+      	<td>{{'panier.total' | translate}} </td>
       	<td>{{total}} {{currency}}</td>
       	<td *ngIf=" display === true"></td>
       </tr>
     </tbody>
   </table>
-   <p *ngIf="rsv?.length==0">Pas de réservation</p>
+   <p *ngIf="rsv?.length==0">{{'panier.no_rsv' | translate}}</p>
   <app-backlink *ngIf=" display === true"></app-backlink>
-  <a *ngIf="rsv?.length>0 && display === true " [routerLink]="['/loginOrder']">Valider la commande</a>
+  <a *ngIf="rsv?.length>0 && display === true " [routerLink]="['/loginOrder']">{{'panier.button' | translate}}</a>

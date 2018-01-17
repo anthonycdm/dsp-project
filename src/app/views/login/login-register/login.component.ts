@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 //import { UserService } from '../services/user-service/user.service';
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
 
-import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -28,14 +28,14 @@ export class LoginComponent implements OnInit {
                password:['',[Validators.required, Validators.minLength(3)]],
               
             });
-          this.create_user_form = fb.group({
+         /* this.create_user_form = fb.group({
              nom: ['',[Validators.required, Validators.minLength(3)]],
                prenom:['',[Validators.required, Validators.minLength(3)]],
                 email: ['',[Validators.required, Validators.minLength(3)]],
                password:['',[Validators.required, Validators.minLength(3)]],
                confirm_password:['',[Validators.required, Validators.minLength(3)]]
               
-            });
+            });*/
 
              }
  
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
                     //this.alertService.error(error);
                 });
     }
-    createAccount() {
+    /*createAccount() {
        this.authService.createClient(this.create_user_form.value)
             .subscribe(
                 data => {
@@ -79,5 +79,5 @@ export class LoginComponent implements OnInit {
                 error => {
                     
                 });
-    }
+    }*/
 }

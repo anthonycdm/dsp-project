@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule,Location } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateModule,TranslateLoader,TranslateService } from '@ngx-translate/core';
+import { TranslateModule,TranslateLoader,TranslateService,MissingTranslationHandler, MissingTranslationHandlerParams } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {MissingTranslation} from '../views/utils/missing-translation/missing-translation';
 import { appRoutes } from '../app-routing/app-routing.module';
 import { BrowserModule } from "@angular/platform-browser";
 
@@ -22,7 +23,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
-            }
+            },
+            missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MissingTranslation}
         }),
   ],
   declarations: [],

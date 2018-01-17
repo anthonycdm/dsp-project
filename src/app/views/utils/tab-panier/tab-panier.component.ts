@@ -1,12 +1,12 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Activites, Reservation } from '../../../models/index';
-import * as myGlobals from '../../../globals/index';
 import { Location } from '@angular/common';
-import { ActivitesService,AuthService,ReservationService,CartService } from '../../../services/index';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/map';
+import { Activites, Reservation } from '../../../models/index';
+import * as myGlobals from '../../../globals/index';
+import { ActivitesService,AuthService,ReservationService,CartService } from '../../../services/index';
 
 @Component({
   selector: 'app-tab-panier',
@@ -19,7 +19,7 @@ export class TabPanierComponent implements OnInit {
 @Output() retrieveTotal : EventEmitter<number> = new EventEmitter<number>();  
 
  // id_client = myGlobals.CURRENT_CLIENT._id;
-  locale = myGlobals.LANGUE;
+  locale = JSON.parse(localStorage.getItem("langue"));
   id_act : any;
   act:any = [];
   rsv :any;
@@ -61,7 +61,7 @@ export class TabPanierComponent implements OnInit {
 
   }
   isDisplay(){
-    console.log(this.location.path());
+    console.log(this.locale);
     if (this.location.path() === '/loginOrder') {
      this.display = false;
     } else {

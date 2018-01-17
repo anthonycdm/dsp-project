@@ -1,10 +1,10 @@
 import { Component, OnInit,AfterViewChecked, Input} from '@angular/core';
-import { UserService, ReservationService, ActivitesService } from '../../../services/index';
-import { Reservation } from '../../../models/index';
-import * as myGlobals from '../../../globals/index';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/map';
+import { UserService, ReservationService, ActivitesService } from '../../../services/index';
+import { Reservation } from '../../../models/index';
+import * as myGlobals from '../../../globals/index';
 declare let paypal: any;
 
 @Component({

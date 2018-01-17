@@ -28,6 +28,11 @@ import { AuthguardGuard, AdminGuard } from '../views/guards/index';
 import { CgvComponent } from '../views/cgv/cgv.component';
 import { CguComponent } from '../views/cgu/cgu.component';
 import { MentionsLegalesComponent } from '../views/mentions-legales/mentions-legales.component';
+import { PhotosComponent } from '../views/photos/index';
+import { PhotosGestionComponent } from '../views/photos-gestion/photos-gestion.component';
+import { PhotoClientCommentComponent } from '../views/photo-client-comment/photo-client-comment.component';
+import { InfoCompteComponent } from '../views/utils/info-compte/info-compte.component';
+import { MesInfosComponent } from '../views/mes-infos/mes-infos.component';
 
 import { AdminMenuComponent,
          AdminHomeComponent,
@@ -88,15 +93,19 @@ export const appRoutes: Routes = [
    { path: 'admin/notes', component:AdminNotesComponent, canActivate:[AdminGuard]},
    { path: 'admin/note/:id', component:AdminNoteComponent, canActivate:[AdminGuard]},
    { path: 'admin/promotions', component:AdminPromotionsComponent, canActivate:[AdminGuard]},
+   { path: 'loginOrder', component: LoginOrderComponent, canActivate:[AuthguardGuard] },
+   { path: 'mes-photos', component: PhotosComponent, canActivate:[AuthguardGuard] },
+   { path: 'mes-informations', component: MesInfosComponent, canActivate:[AuthguardGuard] },
+   { path: 'mes-photos/gestion/id', component: PhotosGestionComponent, canActivate:[AuthguardGuard] },
+   { path: 'mes-photos/id', component: PhotoClientCommentComponent, canActivate:[AuthguardGuard] },
+   { path: 'mon-compte', component: MonCompteComponent, canActivate:[AuthguardGuard] },
+   { path: 'mes-reservations', component: ReservationsComponent, canActivate:[AuthguardGuard] },
    { path: 'activites', component: ActivitesComponent },
    { path: 'activite/:id', component: DetailsActiviteComponent },
-   { path: 'loginOrder', component: LoginOrderComponent, canActivate:[AuthguardGuard] },
    { path: 'mon-panier', component: PanierComponent},
    { path: 'cgu', component: CguComponent},
    { path: 'cgv', component: CgvComponent},
    { path: 'mentions-legales', component: MentionsLegalesComponent},
-   { path: 'mon-compte', component: MonCompteComponent, canActivate:[AuthguardGuard] },
-   { path: 'mes-reservations', component: ReservationsComponent, canActivate:[AuthguardGuard] },
    { path: '**', component: PageNotFoundComponent }
 
 
@@ -181,7 +190,13 @@ export const appRoutes: Routes = [
     CgvComponent,
     CguComponent,
     MentionsLegalesComponent,
-    TabPanierComponent
+    TabPanierComponent,
+    PhotosComponent,
+    PhotosGestionComponent,
+    PhotoClientCommentComponent,
+    InfoCompteComponent,
+    MesInfosComponent
+   
    ],
   	providers : [
   	AuthguardGuard,
